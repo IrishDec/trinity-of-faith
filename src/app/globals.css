@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+
+.hero-slide-1 {
+  background-image: url("/images/hero/church-1-desktop.png");
+  animation: heroSlide1 24s infinite ease-in-out;
+}
+
+.hero-slide-2 {
+  background-image: url("/images/hero/church-2-desktop.png");
+  animation: heroSlide2 24s infinite ease-in-out;
+}
+
+.hero-slide-3 {
+  background-image: url("/images/hero/church-3-desktop.png");
+  animation: heroSlide3 24s infinite ease-in-out;
+}
+
+@keyframes heroSlide1 {
+  0%, 28% { opacity: 1; }
+  33%, 100% { opacity: 0; }
+}
+
+@keyframes heroSlide2 {
+  0%, 28% { opacity: 0; }
+  33%, 61% { opacity: 1; }
+  66%, 100% { opacity: 0; }
+}
+
+@keyframes heroSlide3 {
+  0%, 61% { opacity: 0; }
+  66%, 94% { opacity: 1; }
+  100% { opacity: 0; }
+}
