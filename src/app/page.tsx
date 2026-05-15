@@ -7,20 +7,19 @@ const heroImages = [
   {
     name: "Church 1",
     desktop: "/images/hero/church-1-desktop.png",
-    mobile: "/images/hero/church-1-mobile.png",
+    mobile: "/images/hero/church-1-mobile-v2.png",
   },
   {
     name: "Church 2",
     desktop: "/images/hero/church-2-desktop.png",
-    mobile: "/images/hero/church-2-mobile.png",
+    mobile: "/images/hero/church-2-mobile-v2.png",
   },
   {
     name: "Church 3",
     desktop: "/images/hero/church-3-desktop.png",
-    mobile: "/images/hero/church-3-mobile.png",
+    mobile: "/images/hero/church-3-mobile-v2.png",
   },
 ];
-
 export default function Home() {
   const [isParishInfoOpen, setIsParishInfoOpen] = useState(false);
   const [isExploreOpen, setIsExploreOpen] = useState(false);
