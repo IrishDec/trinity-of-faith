@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { supabase } from "@/lib/supabaseClient";
+
 
 const heroImages = [
   {
@@ -25,11 +27,39 @@ export default function Home() {
   const [isExploreOpen, setIsExploreOpen] = useState(false);
   const [isSacramentsOpen, setIsSacramentsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isParishDropdownOpen, setIsParishDropdownOpen] = useState(false);
+  const [latestFrJoeTeaser, setLatestFrJoeTeaser] = useState("");
+  const [latestFrJoeDate, setLatestFrJoeDate] = useState("");
+
+
+useEffect(() => {
+  async function loadLatestFrJoeMessage() {
+    const { data, error } = await supabase
+      .from("weekly_messages")
+      .select("teaser_html, week_start")
+      .eq("published", true)
+      .order("week_start", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    console.log("HOME FR JOE:", data, error);
+
+    if (error) {
+      return;
+    }
+
+    setLatestFrJoeTeaser(data?.teaser_html || "");
+    setLatestFrJoeDate(data?.week_start || "");
+  }
+
+  loadLatestFrJoeMessage();
+}, []);
 
   return (
     <main className="min-h-screen bg-[#f5f1e8] text-[#1f2f3f]">
- <section className="relative overflow-hidden bg-[#f5f1e8]">
-  <div className="absolute inset-0">
+<section className="relative min-h-[78vh] overflow-hidden bg-[#f5f1e8] sm:min-h-[82vh] lg:h-screen lg:min-h-[760px]">
+  {/* Hero images */}
+  <div className="absolute inset-0 z-0">
     {heroImages.map((image, index) => (
       <div key={image.name} className={`hero-slide hero-slide-${index + 1}`}>
         <div
@@ -44,87 +74,144 @@ export default function Home() {
     ))}
   </div>
 
-  <div className="absolute left-6 top-6 z-20 sm:left-8 sm:top-8 lg:left-12 lg:top-12">
+  {/* Logo */}
+  <div className="absolute left-6 top-6 z-30 sm:left-8 sm:top-8 lg:left-12 lg:top-12">
     <Image
       src="/images/logo-light.png"
-    
       alt="Trinity of Faith Partnership logo"
       width={192}
       height={192}
-     className="h-20 w-20 rounded-2xl bg-white shadow-md object-cover sm:h-24 sm:w-24 lg:h-40 lg:w-40"
+      className="h-20 w-20 rounded-2xl bg-white object-cover shadow-md sm:h-24 sm:w-24 lg:h-40 lg:w-40"
     />
   </div>
 
- <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-start px-6 pt-32 pb-12 sm:min-h-[82vh] sm:px-8 sm:pt-36 sm:pb-14 lg:min-h-screen lg:px-12 lg:pt-20 lg:pb-16">
-    <div className="mx-auto w-full max-w-5xl text-center">
-   <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-black drop-shadow-[0_2px_8px_rgba(255,255,255,0.20)] lg:text-lg">
-        Clonskeagh • Kilmacud • Mount Merrion
-      </p>
+  {/* Top hero content */}
+  <div className="relative z-20 mx-auto max-w-7xl px-6 pt-32 text-center sm:px-8 sm:pt-36 lg:px-12 lg:pt-24">
+    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-black drop-shadow-[0_2px_8px_rgba(255,255,255,0.20)] lg:text-lg">
+      Clonskeagh • Kilmacud • Mount Merrion
+    </p>
 
-      <h1 className="mx-auto max-w-4xl text-4xl font-semibold tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-6xl">
-        Trinity of Faith Partnership
-      </h1>
+    <h1 className="mx-auto max-w-4xl text-4xl font-semibold tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-6xl">
+      Trinity of Faith Partnership
+    </h1>
 
     <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+<div className="relative">
   <button
     type="button"
-    onClick={() => {
-      if (window.innerWidth < 1024) {
-        setIsMobileMenuOpen((prev) => !prev);
-      } else {
-        setIsParishInfoOpen(true);
-      }
-    }}
+    onClick={() => setIsParishDropdownOpen((prev) => !prev)}
     className="inline-flex items-center justify-center rounded-full border border-[#2f4864]/20 bg-white px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-[#f0ebe2]"
   >
     Parish Information
   </button>
 
-  <div className={`${isMobileMenuOpen ? "flex" : "hidden"} flex-col gap-3 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:flex`}>
-    <button
-      type="button"
-      onClick={() => setIsExploreOpen(true)}
-      className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
-    >
-      Explore Our Parishes
-    </button>
+  {isParishDropdownOpen && (
+    <div className="absolute left-1/2 top-full z-50 mt-3 flex w-64 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md">
+      <button
+        type="button"
+        onClick={() => {
+          setIsParishInfoOpen(true);
+          setIsParishDropdownOpen(false);
+        }}
+        className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+      >
+        Mass Times
+      </button>
 
-    <button
-      type="button"
-      onClick={() => setIsSacramentsOpen(true)}
-      className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
-    >
-      Sacraments
-    </button>
+      <a href="/about" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
+        About
+      </a>
+          <a href="/appreciation" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
+       Contact
+      </a>
 
-    <a
-      href="/donate"
-      className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
-    >
-      Donate
-    </a>
+      <a href="/fr-joe" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
+        Fr Joe
+      </a>
 
-    <a
-      href="/webcam"
-      className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
-    >
-      Webcam
-    </a>
-  </div>
+      <button
+        type="button"
+        onClick={() => {
+          setIsExploreOpen(true);
+          setIsParishDropdownOpen(false);
+        }}
+        className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+      >
+        Explore Our Parishes
+      </button>
+
+      <a href="/parish-history" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
+        Parish History
+      </a>
+
+      <a href="/safeguarding" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
+        Safeguarding
+      </a>
+
+      <a href="/appreciation" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
+        Appreciation
+      </a>
+    </div>
+  )}
 </div>
 
-     <div className="mx-auto mt-16 max-w-2xl rounded-2xl bg-white/12 p-5 backdrop-blur-sm lg:mt-52">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E8D33F]">
-          A Few Words from Fr Joe
-        </p>
-        <p className="mt-3 text-base leading-7 text-white/95">
-          Welcome to Trinity of Faith Partnership. We are bringing our parish
-          communities together across Clonskeagh, Kilmacud, and Mount Merrion,
-          and we hope this website will help people feel informed, included,
-          and at home.
-        </p>
+      <div className={`${isMobileMenuOpen ? "flex" : "hidden"} flex-col gap-3 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:flex`}>
+        <button
+          type="button"
+          onClick={() => setIsExploreOpen(true)}
+          className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
+        >
+         Volunteer
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setIsSacramentsOpen(true)}
+          className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
+        >
+          Sacraments
+        </button>
+
+        <a
+          href="/donate"
+          className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
+        >
+          Donate
+        </a>
+
+        <a
+          href="/webcam"
+          className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
+        >
+          Webcam
+        </a>
       </div>
     </div>
+  </div>
+
+  {/* Fr Joe box - desktop pinned low */}
+  <div className="relative z-20 mx-6 mb-8 mt-12 rounded-2xl bg-black/35 p-5 text-center shadow-xl backdrop-blur-sm sm:mx-auto sm:max-w-2xl lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mx-0 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:p-6">
+   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E8D33F]">
+  A Few Words from Fr Joe
+</p>
+
+{latestFrJoeDate && (
+  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/75">
+    {latestFrJoeDate}
+  </p>
+)}
+{latestFrJoeTeaser && (
+  <p className="mt-3 line-clamp-3 whitespace-pre-line text-sm leading-6 text-white/95 sm:text-base sm:leading-7">
+    {latestFrJoeTeaser}
+  </p>
+)}
+
+<a
+  href="/fr-joe"
+  className="mt-4 inline-flex rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#2f4864] transition hover:bg-[#f0ebe2]"
+>
+  Read more
+</a>
   </div>
 </section>
       {isParishInfoOpen && (
@@ -439,14 +526,24 @@ export default function Home() {
         </p>
       </div>
 
-      <div>
-        <h3 className="text-lg font-semibold text-[#E8D33F]">Column One</h3>
-        <div className="mt-4 space-y-2 text-white/80">
-          <p>Placeholder line</p>
-          <p>Placeholder line</p>
-          <p>Placeholder line</p>
-        </div>
-      </div>
+<div>
+  <h3 className="text-lg font-semibold text-[#E8D33F]">Admin</h3>
+  <div className="mt-4 space-y-2 text-white/80">
+    <a
+      href="/fr-joe-admin"
+      className="block transition hover:text-[#E8D33F]"
+    >
+      Weekly message 
+    </a>
+
+    <a
+      href="/fr-joe"
+      className="block transition hover:text-[#E8D33F]"
+    >
+      Fr Joe Messages
+    </a>
+  </div>
+</div>
 
       <div>
         <h3 className="text-lg font-semibold text-[#E8D33F]">Column Two</h3>
