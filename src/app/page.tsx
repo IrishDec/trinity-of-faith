@@ -163,14 +163,12 @@ useEffect(() => {
         >
          Volunteer
         </button>
-
-        <button
-          type="button"
-          onClick={() => setIsSacramentsOpen(true)}
-          className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
-        >
-          Sacraments
-        </button>
+         <a
+         href="/sacraments"
+         className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
+         >
+         Sacraments
+         </a>
 
         <a
           href="/donate"

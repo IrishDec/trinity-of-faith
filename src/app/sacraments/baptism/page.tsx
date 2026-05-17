@@ -1,7 +1,24 @@
+"use client";
+
+import { useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 export default function BaptismRequestPage() {
+const [chosenChurch, setChosenChurch] = useState("");
+const [error, setError] = useState("");
+
+function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+
+  if (!chosenChurch) {
+    setError("Please select your chosen church before sending.");
+    return;
+  }
+
+  setError("");
+  alert("Baptism request form validation is working.");
+}
   return (
     <>
       <SiteHeader />
@@ -23,7 +40,7 @@ export default function BaptismRequestPage() {
               be registered.
             </p>
 
-          <form className="mt-8 space-y-8">
+          <form onSubmit={handleSubmit} className="mt-8 space-y-8">
  <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
     <h2 className="text-xl font-semibold text-[#2f4864]">
       Child Details
@@ -35,6 +52,7 @@ export default function BaptismRequestPage() {
           Child’s surname
         </label>
         <input
+         required
           className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
           placeholder="Child’s surname"
         />
@@ -45,6 +63,7 @@ export default function BaptismRequestPage() {
           Child’s Christian names
         </label>
         <input
+         required
           className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
           placeholder="Child’s Christian names"
         />
@@ -56,6 +75,7 @@ export default function BaptismRequestPage() {
         </label>
         <input
           type="date"
+           required
           className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
         />
       </div>
@@ -66,6 +86,7 @@ export default function BaptismRequestPage() {
         </label>
         <input
           type="date"
+           required
           className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
         />
       </div>
@@ -76,6 +97,7 @@ export default function BaptismRequestPage() {
         Address of parents
       </label>
       <textarea
+       required
         className="mt-2 min-h-28 w-full rounded-2xl border border-black/10 px-4 py-3"
         placeholder="Full address"
       />
@@ -92,21 +114,28 @@ export default function BaptismRequestPage() {
         <label className="text-sm font-semibold text-[#2f4864]">
           Father’s surname
         </label>
-        <input className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
+         
+        <input 
+         required
+          className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
       </div>
 
       <div>
         <label className="text-sm font-semibold text-[#2f4864]">
           Father’s Christian name
         </label>
-        <input className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
+        <input 
+         required
+         className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
       </div>
 
       <div>
         <label className="text-sm font-semibold text-[#2f4864]">
           Father’s religion
         </label>
-        <input className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
+        <input 
+         required
+         className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
       </div>
 
       <div>
@@ -123,14 +152,18 @@ export default function BaptismRequestPage() {
         <label className="text-sm font-semibold text-[#2f4864]">
           Mother’s maiden name
         </label>
-        <input className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
+        <input 
+         required
+         className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
       </div>
 
       <div>
         <label className="text-sm font-semibold text-[#2f4864]">
           Mother’s Christian name
         </label>
-        <input className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
+        <input 
+         required
+         className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
       </div>
 
       <div>
@@ -154,14 +187,18 @@ export default function BaptismRequestPage() {
         <label className="text-sm font-semibold text-[#2f4864]">
           Phone number
         </label>
-        <input className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
+        <input 
+         required
+         className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
       </div>
 
       <div>
         <label className="text-sm font-semibold text-[#2f4864]">
           Mobile number
         </label>
-        <input className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
+        <input 
+         required
+         className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3" />
       </div>
     </div>
   </section>
@@ -232,20 +269,44 @@ export default function BaptismRequestPage() {
 
   <div className="mt-5 grid gap-3 md:grid-cols-3">
     <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 text-sm font-semibold text-[#2f4864]">
-      <input type="radio" name="chosenChurch" />
+      <input
+        type="radio"
+        name="chosenChurch"
+        value="Clonskeagh"
+        checked={chosenChurch === "Clonskeagh"}
+        onChange={(e) => setChosenChurch(e.target.value)}
+      />
       Clonskeagh
     </label>
 
     <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 text-sm font-semibold text-[#2f4864]">
-      <input type="radio" name="chosenChurch" />
+      <input
+        type="radio"
+        name="chosenChurch"
+        value="Kilmacud"
+        checked={chosenChurch === "Kilmacud"}
+        onChange={(e) => setChosenChurch(e.target.value)}
+      />
       Kilmacud
     </label>
 
     <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 text-sm font-semibold text-[#2f4864]">
-      <input type="radio" name="chosenChurch" />
+      <input
+        type="radio"
+        name="chosenChurch"
+        value="Mount Merrion"
+        checked={chosenChurch === "Mount Merrion"}
+        onChange={(e) => setChosenChurch(e.target.value)}
+      />
       Mount Merrion
     </label>
   </div>
+
+  {error && (
+    <p className="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+      {error}
+    </p>
+  )}
 </section>
 
 <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
@@ -257,11 +318,12 @@ export default function BaptismRequestPage() {
     Please upload a photo or file copy of the child’s birth certificate.
   </p>
 
-  <input
-    type="file"
-    accept="image/*,.pdf"
-    className="mt-5 w-full rounded-2xl border border-black/10 px-4 py-3"
-  />
+<input
+  type="file"
+  accept="image/*,.pdf"
+  required
+  className="mt-5 w-full rounded-2xl border border-black/10 px-4 py-3"
+/>
 </section>
 
 <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
@@ -271,7 +333,7 @@ export default function BaptismRequestPage() {
 
   <div className="mt-5 space-y-4">
     <label className="flex items-start gap-3 text-sm leading-6 text-[#425466]">
-      <input type="checkbox" className="mt-1" />
+      <input type="checkbox" required className="mt-1" />
       I confirm that the information provided is accurate.
     </label>
 
@@ -315,12 +377,20 @@ export default function BaptismRequestPage() {
   </div>
 </section>
 
-<button
-  type="submit"
-  className="w-full rounded-full bg-[#2f4864] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#24384f] sm:w-fit"
->
-  Send Baptism Request
-</button>
+<div>
+  {error && (
+    <p className="mb-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+      {error}
+    </p>
+  )}
+
+  <button
+    type="submit"
+    className="w-full rounded-full bg-[#2f4864] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#24384f] sm:w-fit"
+  >
+    Send Baptism Request
+  </button>
+</div>
 </form>
           </div>
         </div>

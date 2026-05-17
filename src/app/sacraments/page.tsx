@@ -4,7 +4,23 @@ import { useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-const sacramentCards = [
+type SacramentSection = {
+  heading: string;
+  body?: string;
+  bullets?: string[];
+};
+
+type SacramentCard = {
+  title: string;
+  subtitle: string;
+  teaser: string;
+  hasForm: boolean;
+  formLabel?: string;
+  formHref?: string;
+  sections: SacramentSection[];
+};
+
+const sacramentCards: SacramentCard[] = [
   {
     title: "Baptism",
     subtitle: "A welcome into the Christian Family",
@@ -78,7 +94,12 @@ const sacramentCards = [
       {
         heading: "First Holy Communion",
         body:
-          "Each year about 150 children in our parish partnership prepare to receive First Holy Communion. They participate in the ‘Do This In Memory Of Me’ programme, and schools work with the parish to ensure that children and parents enjoy the experience. Most First Communicants are in Second Class of Primary School, but older children and adults can also receive the Sacrament. For more information on the programme, please contact the parish offices.",
+          "Each year about 150 children in our parish partnership prepare to receive First Holy Communion. They participate in the ‘Do This In Memory Of Me’ programme, and schools work with the parish to ensure that children and parents enjoy the experience.",
+      },
+      {
+        heading: "Older Children and Adults",
+        body:
+          "Most First Communicants are in Second Class of Primary School, but older children and adults can also receive the Sacrament. For more information on the programme, please contact the parish offices.",
       },
     ],
   },
@@ -118,7 +139,12 @@ const sacramentCards = [
       {
         heading: "About Confirmation",
         body:
-          "The Sacrament of Confirmation is the third Sacrament of initiation and is conferred on children in Sixth Class. Through this sacrament the candidates receive the gift of the Holy Spirit. In Confirmation we are called to be witnesses to Christ in the work of building His Kingdom on Earth and in our Christian faith.",
+          "The Sacrament of Confirmation is the third Sacrament of initiation and is conferred on children in Sixth Class. Through this sacrament the candidates receive the gift of the Holy Spirit.",
+      },
+      {
+        heading: "Christian Witness",
+        body:
+          "In Confirmation we are called to be witnesses to Christ in the work of building His Kingdom on Earth and in our Christian faith.",
       },
       {
         heading: "Adults and Teenagers",
@@ -144,16 +170,20 @@ const sacramentCards = [
       {
         heading: "Notice Required",
         body:
-          "Four months’ notice of your intention to marry is required, but it is advisable to email the parish office as early as possible to check if your preferred date is available.",
+          "Four months’ notice of your intention to marry is required, but it is advisable to email the parish office as early as possible to see if your preferred date is available.",
       },
       {
-        heading: "Church Requirements",
+        heading: "You Will Need",
         bullets: [
           "Letter of Freedom to Marry form. A parent or sibling will need to complete this in the presence of a priest.",
-          "Participation in a marriage preparation course. These can be booked online through Accord or Together.",
-          "Prenuptial enquiry form.",
-          "Baptism and Confirmation Certificates, dated within six months of the proposed wedding date.",
+          "Participation in a marriage preparation course. These are held at different locations throughout the year and can be booked online.",
+          "The prenuptial enquiry form.",
         ],
+      },
+      {
+        heading: "Other Necessary Documents",
+        body:
+          "Baptism and Confirmation Certificates are required and must be dated within six months of the proposed wedding date.",
       },
       {
         heading: "State Regulations",
@@ -173,18 +203,23 @@ const sacramentCards = [
     teaser:
       "Support for those who are ill, housebound, infirm, or in need of healing.",
     hasForm: true,
-    formLabel: "Request Pastoral Support",
+    formLabel: "Request Support",
     formHref: "/sacraments/pastoral-support",
     sections: [
       {
         heading: "About the Sacrament of the Sick",
         body:
-          "This Sacrament of Anointing is celebrated in our partnership twice a year and all are welcome to receive it, especially those who are ill or experience the need for healing in any way. It is also available at any time to those who are sick or infirm from old age.",
+          "This Sacrament of Anointing is celebrated in our partnership twice a year and all are welcome to receive it, especially those who are ill or experience the need for healing in any way.",
       },
       {
-        heading: "Request a Visit or Communion",
+        heading: "Available at Any Time",
         body:
-          "If you would like a priest to visit, or would like to receive the Sacrament of the Sick or Holy Communion from a minister of the Eucharist, please phone or email the parish offices.",
+          "It is also available at any time to those who are sick or infirm from old age.",
+      },
+      {
+        heading: "Request a Priest Visit or Holy Communion",
+        body:
+          "If you would like a priest to visit, or would like to receive the Sacrament of the Sick or Holy Communion from a minister of the Eucharist, please contact the parish offices.",
       },
       {
         heading: "Parish Office Contacts",
@@ -196,7 +231,7 @@ const sacramentCards = [
       },
     ],
   },
-  {
+   {
     title: "Holy Orders",
     subtitle: "Priesthood and Religious Life",
     teaser:
@@ -206,7 +241,7 @@ const sacramentCards = [
       {
         heading: "Exploring a Vocation",
         body:
-          "God continues to call men and women to serve Him in the Priesthood and in Religious Life. If you feel drawn to explore this calling further, please talk to one of the parish partnership team whom you know.",
+          "God continues to call men and women to serve Him in the Priesthood and in Religious Life. If you feel drawn to explore this calling further, please talk to one of our parish partnership team whom you know.",
       },
       {
         heading: "Helpful Websites",
@@ -217,9 +252,9 @@ const sacramentCards = [
 ];
 
 export default function SacramentsPage() {
-  const [openSacrament, setOpenSacrament] = useState<
-    (typeof sacramentCards)[number] | null
-  >(null);
+  const [openSacrament, setOpenSacrament] = useState<SacramentCard | null>(
+    null
+  );
 
   return (
     <>
@@ -238,7 +273,7 @@ export default function SacramentsPage() {
 
             <p className="mt-5 text-base leading-7 text-[#425466] sm:text-lg">
               Choose a sacrament below to read more. Baptism, Marriage and
-              Pastoral Support include request forms for the parish office.
+              Sacrament of the Sick include request forms for the parish office.
             </p>
           </div>
 
@@ -318,13 +353,13 @@ export default function SacramentsPage() {
                     {section.heading}
                   </h3>
 
-                  {"body" in section && section.body && (
+                  {section.body && (
                     <p className="mt-3 leading-7 text-[#425466]">
                       {section.body}
                     </p>
                   )}
 
-                  {"bullets" in section && section.bullets && (
+                  {section.bullets && (
                     <div className="mt-3 space-y-2 text-[#425466]">
                       {section.bullets.map((item) => (
                         <p key={item} className="leading-7">
