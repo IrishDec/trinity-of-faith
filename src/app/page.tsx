@@ -77,15 +77,14 @@ useEffect(() => {
     </div>
   ))}
 </div>
-
 {/* Mobile top buttons */}
-<div className="absolute right-4 top-5 z-30 flex w-[190px] flex-col gap-2 lg:hidden">
+<div className="absolute right-4 top-5 z-[9999] flex w-[190px] flex-col gap-2 lg:hidden">
   <button
     type="button"
     onClick={() => setIsParishDropdownOpen((prev) => !prev)}
     className="rounded-full bg-white/95 px-4 py-2.5 text-sm font-bold text-[#2f4864] shadow-lg ring-1 ring-black/10"
   >
-    Parish Info
+    Parish Information
   </button>
 
   {isParishDropdownOpen && (
@@ -103,18 +102,16 @@ useEffect(() => {
           About
         </a>
 
-        <a
-          href="/parish-history"
-          className="block transition hover:text-[#E8D33F]"
-        >
+        <a href="/parish-history" className="block transition hover:text-[#E8D33F]">
           Parish History
         </a>
 
-        <a
-          href="/safeguarding"
-          className="block transition hover:text-[#E8D33F]"
-        >
+        <a href="/safeguarding" className="block transition hover:text-[#E8D33F]">
           Safeguarding
+        </a>
+
+        <a href="/contact" className="block transition hover:text-[#E8D33F]">
+          Contact
         </a>
       </div>
 
@@ -132,17 +129,11 @@ useEffect(() => {
             Adoration
           </a>
 
-          <a
-            href="/appreciation"
-            className="block transition hover:text-[#E8D33F]"
-          >
+          <a href="/appreciation" className="block transition hover:text-[#E8D33F]">
             Appreciation
           </a>
 
-          <a
-            href="/volunteer"
-            className="block transition hover:text-[#E8D33F]"
-          >
+          <a href="/volunteer" className="block transition hover:text-[#E8D33F]">
             Volunteer
           </a>
         </div>
@@ -190,7 +181,7 @@ useEffect(() => {
 </button>
 
   {isParishDropdownOpen && (
-    <div className="absolute left-1/2 top-full z-[9999] mt-3 flex w-64 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md">
+    <div className="absolute left-1/2 top-full z-[9999] mt-3 hidden w-64 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md sm:flex">
       <button
         type="button"
         onClick={() => {
