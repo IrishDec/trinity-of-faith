@@ -17,7 +17,9 @@ type WeeklyMessage = {
 export default async function WeeklyMessagesPage() {
   const { data: messages, error } = await supabase
     .from("weekly_messages")
-    .select("id, title, week_start, teaser_html, full_html, slug, published, created_at, updated_by")
+    .select(
+      "id, title, week_start, teaser_html, full_html, slug, published, created_at, updated_by"
+    )
     .eq("published", true)
     .order("week_start", { ascending: false });
 
@@ -36,19 +38,17 @@ export default async function WeeklyMessagesPage() {
     );
   }
 
- return (
-  <>
-    <SiteHeader />
+  return (
+    <>
+      <SiteHeader />
 
-   <main className="min-h-screen bg-[#f5f1e8] px-6 py-8 text-[#1f2f3f]">
-        <div className="mx-auto max-w-4xl">
-
-
-       <div className="space-y-6">
+      <main className="min-h-screen bg-[#f5f1e8] px-6 py-8 text-[#1f2f3f]">
+        <div className="mx-auto max-w-5xl">
+          <div className="space-y-6">
             {messages?.map((message: WeeklyMessage) => (
               <article
                 key={message.id}
-                className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5"
+                className="rounded-3xl bg-white px-5 py-6 shadow-sm ring-1 ring-black/5 sm:px-8 sm:py-8 lg:px-10 lg:py-10"
               >
                 <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#2f4864]/70">
                   {message.week_start}
@@ -65,9 +65,9 @@ export default async function WeeklyMessagesPage() {
                 </h2>
 
                 {message.full_html && (
-                  <p className="mt-4 whitespace-pre-line leading-7 text-[#425466]">
-                    {message.full_html}
-                  </p>
+                  <div className="mt-5 text-[17px] leading-8 text-[#425466] sm:text-[18px] sm:leading-9">
+                    {message.full_html.replace(/\s*\n\s*/g, " ")}
+                  </div>
                 )}
               </article>
             ))}
