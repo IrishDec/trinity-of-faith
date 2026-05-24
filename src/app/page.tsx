@@ -79,14 +79,76 @@ useEffect(() => {
 </div>
 
 {/* Mobile top buttons */}
-<div className="absolute right-4 top-5 z-30 flex flex-col gap-2 lg:hidden">
+<div className="absolute right-4 top-5 z-30 flex w-[190px] flex-col gap-2 lg:hidden">
   <button
     type="button"
-    onClick={() => setIsParishInfoOpen(true)}
+    onClick={() => setIsParishDropdownOpen((prev) => !prev)}
     className="rounded-full bg-white/95 px-4 py-2.5 text-sm font-bold text-[#2f4864] shadow-lg ring-1 ring-black/10"
   >
     Parish Info
   </button>
+
+  {isParishDropdownOpen && (
+    <div className="rounded-3xl bg-[#24384f]/95 p-4 text-sm text-white shadow-xl ring-1 ring-white/20 backdrop-blur-md">
+      <h3 className="font-semibold text-[#E8D33F]">
+        Parish Information
+      </h3>
+
+      <div className="mt-3 space-y-2 text-white/90">
+        <a href="/fr-joe" className="block transition hover:text-[#E8D33F]">
+          Fr Joe
+        </a>
+
+        <a href="/about" className="block transition hover:text-[#E8D33F]">
+          About
+        </a>
+
+        <a
+          href="/parish-history"
+          className="block transition hover:text-[#E8D33F]"
+        >
+          Parish History
+        </a>
+
+        <a
+          href="/safeguarding"
+          className="block transition hover:text-[#E8D33F]"
+        >
+          Safeguarding
+        </a>
+      </div>
+
+      <div className="mt-4 border-t border-white/15 pt-3">
+        <h3 className="font-semibold text-[#E8D33F]">
+          Quick Links
+        </h3>
+
+        <div className="mt-3 space-y-2 text-white/90">
+          <a href="/" className="block transition hover:text-[#E8D33F]">
+            Home
+          </a>
+
+          <a href="/adoration" className="block transition hover:text-[#E8D33F]">
+            Adoration
+          </a>
+
+          <a
+            href="/appreciation"
+            className="block transition hover:text-[#E8D33F]"
+          >
+            Appreciation
+          </a>
+
+          <a
+            href="/volunteer"
+            className="block transition hover:text-[#E8D33F]"
+          >
+            Volunteer
+          </a>
+        </div>
+      </div>
+    </div>
+  )}
 
   <button
     type="button"
@@ -203,30 +265,39 @@ useEffect(() => {
     </div>
   </div>
 
-  {/* Fr Joe box - desktop pinned low */}
-  <div className="relative z-20 mx-6 mb-8 mt-12 rounded-2xl bg-black/35 p-5 text-center shadow-xl backdrop-blur-sm sm:mx-auto sm:max-w-2xl lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mx-0 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:p-6">
-   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E8D33F]">
-  A Few Words from Fr Joe
-</p>
+  {/* Fr Joe box - mobile polished, desktop pinned low */}
+<div className="relative z-20 mx-4 mb-6 mt-10 rounded-[1.75rem] border border-white/25 bg-[#1f2f3f]/85 p-5 text-left shadow-2xl backdrop-blur-md sm:mx-auto sm:max-w-2xl sm:p-6 lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mx-0 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:bg-black/35 lg:p-6 lg:text-center">
+  <div className="flex items-start gap-3 lg:block">
+    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E8D33F] text-base font-extrabold text-[#24384f] lg:mx-auto lg:mb-3">
+      ✦
+    </div>
 
-{latestFrJoeDate && (
-  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/75">
-    {latestFrJoeDate}
-  </p>
-)}
-{latestFrJoeTeaser && (
-  <p className="mt-3 line-clamp-3 whitespace-pre-line text-sm leading-6 text-white/95 sm:text-base sm:leading-7">
-    {latestFrJoeTeaser}
-  </p>
-)}
+    <div className="min-w-0 flex-1">
+      <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D33F] sm:text-sm lg:tracking-[0.2em]">
+        A Few Words from Fr Joe
+      </p>
 
-<a
-  href="/fr-joe"
-  className="mt-4 inline-flex rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#2f4864] transition hover:bg-[#f0ebe2]"
->
-  Read more
-</a>
+      {latestFrJoeDate && (
+        <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 sm:text-xs">
+          {latestFrJoeDate}
+        </p>
+      )}
+
+      {latestFrJoeTeaser && (
+        <p className="mt-3 line-clamp-4 whitespace-pre-line text-sm leading-6 text-white/95 sm:text-base sm:leading-7 lg:line-clamp-3">
+          {latestFrJoeTeaser}
+        </p>
+      )}
+
+      <a
+        href="/fr-joe"
+        className="mt-4 inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#2f4864] shadow-sm transition hover:bg-[#f0ebe2]"
+      >
+        Read more
+      </a>
+    </div>
   </div>
+</div>
 </section>
       {isParishInfoOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1b2733]/70 p-4 backdrop-blur-sm">
