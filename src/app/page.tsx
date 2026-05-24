@@ -9,17 +9,17 @@ const heroImages = [
   {
     name: "Clonskeagh",
     desktop: "/images/hero/church-1-desktop.png",
-    mobile: "/images/hero/church-1-mobile.png",
+    mobile: "/images/hero/church-1-mobile-v2.png",
   },
   {
     name: "Kilmacud",
     desktop: "/images/hero/church-2-desktop.png",
-    mobile: "/images/hero/church-2-mobile.png",
+    mobile: "/images/hero/church-2-mobile-v2.png",
   },
   {
     name: "Mount Merrion",
     desktop: "/images/hero/church-3-desktop.png",
-    mobile: "/images/hero/church-3-mobile.png",
+    mobile: "/images/hero/church-3-mobile-v2.png",
   },
 ];
 export default function Home() {
