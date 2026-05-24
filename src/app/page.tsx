@@ -60,22 +60,27 @@ useEffect(() => {
 <section className="relative min-h-[78vh] overflow-hidden bg-[#f5f1e8] sm:min-h-[82vh] lg:h-screen lg:min-h-[760px]">
 {/* Hero images */}
 <div className="absolute inset-0 z-0">
-  {heroImages.map((image, index) => (
-    <div key={image.name} className={`hero-slide hero-slide-${index + 1}`}>
-      <div
-        className="absolute inset-0 bg-cover bg-no-repeat lg:hidden"
-        style={{
-          backgroundImage: `url(${image.desktop})`,
-          backgroundPosition: image.mobilePosition,
-        }}
-      />
+  {heroImages.map((image, index) => {
+    const mobilePosition =
+      index === 0 ? "50% 44%" : index === 1 ? "50% 34%" : "50% 40%";
 
-      <div
-        className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat lg:block"
-        style={{ backgroundImage: `url(${image.desktop})` }}
-      />
-    </div>
-  ))}
+    return (
+      <div key={image.name} className={`hero-slide hero-slide-${index + 1}`}>
+        <div
+          className="absolute inset-0 bg-cover bg-no-repeat lg:hidden"
+          style={{
+            backgroundImage: `url(${image.desktop})`,
+            backgroundPosition: mobilePosition,
+          }}
+        />
+
+        <div
+          className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat lg:block"
+          style={{ backgroundImage: `url(${image.desktop})` }}
+        />
+      </div>
+    );
+  })}
 </div>
 
   {/* Logo */}
