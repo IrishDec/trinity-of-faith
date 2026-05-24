@@ -63,8 +63,8 @@ export default async function WeeklyMessagesPage() {
                 <h2 className="mt-2 text-2xl font-semibold text-[#2f4864]">
                   {message.title}
                 </h2>
-
-          {message.full_html && (
+<p className="text-red-600">{String(message.full_html)}</p>
+{message.full_html && (
   <div className="mt-5 text-[17px] leading-8 text-[#425466] sm:text-[18px] sm:leading-9">
     {message.full_html
       .replace(/<br\s*\/?>/gi, "\n")
