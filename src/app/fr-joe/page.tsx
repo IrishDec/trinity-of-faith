@@ -41,10 +41,15 @@ export default async function WeeklyMessagesPage() {
   return (
     <>
       <SiteHeader />
+<main className="min-h-screen bg-[#f5f1e8] px-6 py-8 text-[#1f2f3f]">
+  <div className="mx-auto max-w-5xl">
+   <div className="mb-6">
+  <h1 className="text-2xl font-semibold text-[#2f4864] sm:text-4xl">
+    A few words from Fr Joe
+  </h1>
+</div>
 
-      <main className="min-h-screen bg-[#f5f1e8] px-6 py-8 text-[#1f2f3f]">
-        <div className="mx-auto max-w-5xl">
-          <div className="space-y-6">
+    <div className="space-y-6">
             {messages?.map((message: WeeklyMessage) => (
               <article
                 key={message.id}
@@ -63,7 +68,7 @@ export default async function WeeklyMessagesPage() {
                 <h2 className="mt-2 text-2xl font-semibold text-[#2f4864]">
                   {message.title}
                 </h2>
-                
+
 {message.full_html && (
   <div className="mt-5 text-[17px] leading-8 text-[#425466] sm:text-[18px] sm:leading-9">
     {message.full_html
