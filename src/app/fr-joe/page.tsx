@@ -64,11 +64,20 @@ export default async function WeeklyMessagesPage() {
                   {message.title}
                 </h2>
 
-                {message.full_html && (
-                  <div className="mt-5 text-[17px] leading-8 text-[#425466] sm:text-[18px] sm:leading-9">
-                    {message.full_html.replace(/\s*\n\s*/g, " ")}
-                  </div>
-                )}
+          {message.full_html && (
+  <div className="mt-5 text-[17px] leading-8 text-[#425466] sm:text-[18px] sm:leading-9">
+    {message.full_html
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .split("\n\n")
+      .filter((paragraph) => paragraph.trim() !== "")
+      .map((paragraph, index) => (
+        <p key={index} className="mb-5 last:mb-0">
+          {paragraph.replace(/\n/g, " ")}
+        </p>
+      ))}
+  </div>
+)}
               </article>
             ))}
 
