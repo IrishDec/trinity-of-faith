@@ -7,19 +7,19 @@ import { supabase } from "@/lib/supabaseClient";
 
 const heroImages = [
   {
-    name: "Church 1",
+    name: "Clonskeagh",
     desktop: "/images/hero/church-1-desktop.png",
-    mobilePosition: "50% 42%",
+    mobile: "/images/hero/church-1-mobile.png",
   },
   {
-    name: "Church 2",
+    name: "Kilmacud",
     desktop: "/images/hero/church-2-desktop.png",
-    mobilePosition: "50% 36%",
+    mobile: "/images/hero/church-2-mobile.png",
   },
   {
-    name: "Church 3",
+    name: "Mount Merrion",
     desktop: "/images/hero/church-3-desktop.png",
-    mobilePosition: "50% 40%",
+    mobile: "/images/hero/church-3-mobile.png",
   },
 ];
 export default function Home() {
@@ -58,29 +58,24 @@ useEffect(() => {
   return (
     <main className="min-h-screen bg-[#f5f1e8] text-[#1f2f3f]">
 <section className="relative min-h-[78vh] overflow-hidden bg-[#f5f1e8] sm:min-h-[82vh] lg:h-screen lg:min-h-[760px]">
+
 {/* Hero images */}
 <div className="absolute inset-0 z-0">
-  {heroImages.map((image, index) => {
-    const mobilePosition =
-      index === 0 ? "50% 44%" : index === 1 ? "50% 34%" : "50% 40%";
+  {heroImages.map((image, index) => (
+    <div key={image.name} className={`hero-slide hero-slide-${index + 1}`}>
+      {/* Mobile only: show the whole image smaller */}
+      <div
+        className="absolute inset-0 bg-[#102236] bg-contain bg-center bg-no-repeat lg:hidden"
+        style={{ backgroundImage: `url(${image.mobile})` }}
+      />
 
-    return (
-      <div key={image.name} className={`hero-slide hero-slide-${index + 1}`}>
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat lg:hidden"
-          style={{
-            backgroundImage: `url(${image.desktop})`,
-            backgroundPosition: mobilePosition,
-          }}
-        />
-
-        <div
-          className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat lg:block"
-          style={{ backgroundImage: `url(${image.desktop})` }}
-        />
-      </div>
-    );
-  })}
+      {/* Desktop only: DO NOT CHANGE */}
+      <div
+        className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat lg:block"
+        style={{ backgroundImage: `url(${image.desktop})` }}
+      />
+    </div>
+  ))}
 </div>
 
   {/* Logo */}
