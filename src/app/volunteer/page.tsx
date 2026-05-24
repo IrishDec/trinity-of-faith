@@ -418,7 +418,7 @@ export default function VolunteerPage() {
               <p className="font-bold">
                 Fr Joe Mullan,
                 <br />
-                Parish Priest Mount Merrion, Kilmacud, Clonskeagh
+                Parish Priest Mount Merrion, Kilmacud, Clonskeagh<br></br>
               </p>
             </div>
           </Page>
