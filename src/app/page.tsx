@@ -262,7 +262,7 @@ useEffect(() => {
   </div>
 
  {/* Fr Joe box - transparent glass style */}
-<div className="relative z-20 mx-6 mb-8 mt-10 rounded-2xl bg-black/35 p-5 text-center shadow-xl backdrop-blur-md sm:mx-auto sm:max-w-2xl lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mx-0 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:p-6">
+<div className="relative z-20 mx-6 mb-8 mt-20 rounded-2xl bg-black/35 p-5 text-center shadow-xl backdrop-blur-md sm:mx-auto sm:max-w-2xl lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mx-0 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:p-6">
   <p className="text-xs font-semibold uppercase leading-6 tracking-[0.24em] text-[#E8D33F] sm:text-sm sm:tracking-[0.2em]">
     A Few Words from Fr Joe
   </p>
