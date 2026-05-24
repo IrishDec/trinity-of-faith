@@ -169,9 +169,8 @@ useEffect(() => {
       className="h-20 w-20 rounded-2xl bg-white object-cover shadow-md sm:h-24 sm:w-24 lg:h-40 lg:w-40"
     />
   </div>
-
-  {/* Top hero content */}
-  <div className="relative z-20 mx-auto max-w-7xl px-6 pt-32 text-center sm:px-8 sm:pt-36 lg:px-12 lg:pt-24">
+{/* Top hero content */}
+<div className="relative z-40 mx-auto max-w-7xl px-6 pt-32 text-center sm:px-8 sm:pt-36 lg:px-12 lg:pt-24">
     <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-black drop-shadow-[0_2px_8px_rgba(255,255,255,0.20)] lg:text-lg">
       Clonskeagh • Kilmacud • Mount Merrion
     </p>
@@ -181,8 +180,14 @@ useEffect(() => {
     </h1>
 
     <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-<div className="relative">
- 
+<div className="relative z-50">
+ <button
+  type="button"
+  onClick={() => setIsParishDropdownOpen((prev) => !prev)}
+  className="hidden items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white sm:inline-flex"
+>
+  Parish Information
+</button>
 
   {isParishDropdownOpen && (
     <div className="absolute left-1/2 top-full z-[9999] mt-3 flex w-64 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md">
@@ -265,38 +270,30 @@ useEffect(() => {
     </div>
   </div>
 
-  {/* Fr Joe box - mobile polished, desktop pinned low */}
-<div className="relative z-20 mx-4 mb-6 mt-10 rounded-[1.75rem] border border-white/25 bg-[#1f2f3f]/85 p-5 text-left shadow-2xl backdrop-blur-md sm:mx-auto sm:max-w-2xl sm:p-6 lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mx-0 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:bg-black/35 lg:p-6 lg:text-center">
-  <div className="flex items-start gap-3 lg:block">
-    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E8D33F] text-base font-extrabold text-[#24384f] lg:mx-auto lg:mb-3">
-      ✦
-    </div>
+ {/* Fr Joe box - transparent glass style */}
+<div className="relative z-20 mx-6 mb-8 mt-10 rounded-2xl bg-black/35 p-5 text-center shadow-xl backdrop-blur-md sm:mx-auto sm:max-w-2xl lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mx-0 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:p-6">
+  <p className="text-xs font-semibold uppercase leading-6 tracking-[0.24em] text-[#E8D33F] sm:text-sm sm:tracking-[0.2em]">
+    A Few Words from Fr Joe
+  </p>
 
-    <div className="min-w-0 flex-1">
-      <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D33F] sm:text-sm lg:tracking-[0.2em]">
-        A Few Words from Fr Joe
-      </p>
+  {latestFrJoeDate && (
+    <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/75 sm:text-xs">
+      {latestFrJoeDate}
+    </p>
+  )}
 
-      {latestFrJoeDate && (
-        <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 sm:text-xs">
-          {latestFrJoeDate}
-        </p>
-      )}
+  {latestFrJoeTeaser && (
+    <p className="mx-auto mt-4 max-w-[32ch] line-clamp-3 whitespace-pre-line text-[15px] leading-7 text-white/95 sm:max-w-xl sm:text-base sm:leading-7">
+      {latestFrJoeTeaser}
+    </p>
+  )}
 
-      {latestFrJoeTeaser && (
-        <p className="mt-3 line-clamp-4 whitespace-pre-line text-sm leading-6 text-white/95 sm:text-base sm:leading-7 lg:line-clamp-3">
-          {latestFrJoeTeaser}
-        </p>
-      )}
-
-      <a
-        href="/fr-joe"
-        className="mt-4 inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#2f4864] shadow-sm transition hover:bg-[#f0ebe2]"
-      >
-        Read more
-      </a>
-    </div>
-  </div>
+  <a
+    href="/fr-joe"
+    className="mt-5 inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#2f4864] shadow-sm transition hover:bg-[#f0ebe2]"
+  >
+    Read more
+  </a>
 </div>
 </section>
       {isParishInfoOpen && (
