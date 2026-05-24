@@ -31,7 +31,6 @@ export default function SiteHeader() {
           </a>
         </div>
 
-        {/* Mobile menu button */}
         <div className="mt-5 flex justify-center sm:hidden">
           <button
             type="button"
@@ -42,7 +41,6 @@ export default function SiteHeader() {
           </button>
         </div>
 
-        {/* Mobile menu */}
         {isMenuOpen && (
           <nav className="mt-5 grid gap-3 sm:hidden">
             <a href="/" className={mobileButtonClass}>
@@ -83,9 +81,9 @@ export default function SiteHeader() {
               </div>
             )}
 
-            <a href="/volunteer" className={mobileButtonClass}>
-              Volunteer
-            </a>
+           <a href="/volunteer" className={mobileButtonClass}>
+             Volunteer
+           </a>
 
             <a href="/sacraments" className={mobileButtonClass}>
               Sacraments
@@ -101,7 +99,6 @@ export default function SiteHeader() {
           </nav>
         )}
 
-        {/* Desktop menu */}
         <nav className="mt-7 hidden flex-wrap justify-center gap-3 sm:flex">
           <a href="/" className={buttonClass}>
             Home
@@ -142,9 +139,8 @@ export default function SiteHeader() {
               </div>
             )}
           </div>
-
           <a href="/volunteer" className={buttonClass}>
-            Volunteer
+           Volunteer
           </a>
 
           <a href="/sacraments" className={buttonClass}>

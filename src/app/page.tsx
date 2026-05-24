@@ -156,13 +156,12 @@ useEffect(() => {
 </div>
 
       <div className={`${isMobileMenuOpen ? "flex" : "hidden"} flex-col gap-3 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:flex`}>
-        <button
-          type="button"
-          onClick={() => setIsExploreOpen(true)}
-          className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
-        >
-         Volunteer
-        </button>
+      <a
+  href="/volunteer"
+  className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
+>
+  Volunteer
+</a>
          <a
          href="/sacraments"
          className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/90 px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-white"
