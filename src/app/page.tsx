@@ -63,13 +63,13 @@ useEffect(() => {
 <div className="absolute inset-0 z-0">
   {heroImages.map((image, index) => (
     <div key={image.name} className={`hero-slide hero-slide-${index + 1}`}>
-      {/* Mobile only: show the whole image smaller */}
+      {/* Mobile only */}
       <div
-        className="absolute inset-0 bg-[#102236] bg-contain bg-center bg-no-repeat lg:hidden"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:hidden"
         style={{ backgroundImage: `url(${image.mobile})` }}
       />
 
-      {/* Desktop only: DO NOT CHANGE */}
+      {/* Desktop only - do not change */}
       <div
         className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat lg:block"
         style={{ backgroundImage: `url(${image.desktop})` }}
