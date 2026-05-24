@@ -9,17 +9,17 @@ const heroImages = [
   {
     name: "Church 1",
     desktop: "/images/hero/church-1-desktop.png",
-    mobile: "/images/hero/church-1-mobile-v2.png",
+    mobilePosition: "50% 42%",
   },
   {
     name: "Church 2",
     desktop: "/images/hero/church-2-desktop.png",
-    mobile: "/images/hero/church-2-mobile-v2.png",
+    mobilePosition: "50% 36%",
   },
   {
     name: "Church 3",
     desktop: "/images/hero/church-3-desktop.png",
-    mobile: "/images/hero/church-3-mobile-v2.png",
+    mobilePosition: "50% 40%",
   },
 ];
 export default function Home() {
@@ -58,21 +58,25 @@ useEffect(() => {
   return (
     <main className="min-h-screen bg-[#f5f1e8] text-[#1f2f3f]">
 <section className="relative min-h-[78vh] overflow-hidden bg-[#f5f1e8] sm:min-h-[82vh] lg:h-screen lg:min-h-[760px]">
-  {/* Hero images */}
-  <div className="absolute inset-0 z-0">
-    {heroImages.map((image, index) => (
-      <div key={image.name} className={`hero-slide hero-slide-${index + 1}`}>
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:hidden"
-          style={{ backgroundImage: `url(${image.mobile})` }}
-        />
-        <div
-          className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat lg:block"
-          style={{ backgroundImage: `url(${image.desktop})` }}
-        />
-      </div>
-    ))}
-  </div>
+{/* Hero images */}
+<div className="absolute inset-0 z-0">
+  {heroImages.map((image, index) => (
+    <div key={image.name} className={`hero-slide hero-slide-${index + 1}`}>
+      <div
+        className="absolute inset-0 bg-cover bg-no-repeat lg:hidden"
+        style={{
+          backgroundImage: `url(${image.desktop})`,
+          backgroundPosition: image.mobilePosition,
+        }}
+      />
+
+      <div
+        className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat lg:block"
+        style={{ backgroundImage: `url(${image.desktop})` }}
+      />
+    </div>
+  ))}
+</div>
 
   {/* Logo */}
   <div className="absolute left-6 top-6 z-30 sm:left-8 sm:top-8 lg:left-12 lg:top-12">
