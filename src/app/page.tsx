@@ -69,7 +69,7 @@ useEffect(() => {
         style={{ backgroundImage: `url(${image.mobile})` }}
       />
 
-      {/* Desktop only - do not change */}
+      {/* Desktop only - original desktop behaviour */}
       <div
         className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat lg:block"
         style={{ backgroundImage: `url(${image.desktop})` }}
@@ -78,6 +78,8 @@ useEffect(() => {
   ))}
 </div>
 
+{/* Desktop readability overlay only */}
+<div className="absolute inset-0 z-[1] hidden bg-black/20 lg:block" />
   {/* Logo */}
   <div className="absolute left-6 top-6 z-30 sm:left-8 sm:top-8 lg:left-12 lg:top-12">
     <Image
