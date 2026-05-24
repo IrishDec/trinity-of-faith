@@ -78,8 +78,25 @@ useEffect(() => {
   ))}
 </div>
 
-{/* Desktop readability overlay only */}
-<div className="absolute inset-0 z-[1] hidden bg-black/20 lg:block" />
+{/* Mobile top buttons */}
+<div className="absolute right-4 top-5 z-30 flex flex-col gap-2 lg:hidden">
+  <button
+    type="button"
+    onClick={() => setIsParishInfoOpen(true)}
+    className="rounded-full bg-white/95 px-4 py-2.5 text-sm font-bold text-[#2f4864] shadow-lg ring-1 ring-black/10"
+  >
+    Parish Info
+  </button>
+
+  <button
+    type="button"
+    onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+    className="rounded-full bg-[#2f4864]/95 px-4 py-2.5 text-center text-sm font-bold text-white shadow-lg ring-1 ring-white/20"
+  >
+    Menu
+  </button>
+</div>
+
   {/* Logo */}
   <div className="absolute left-6 top-6 z-30 sm:left-8 sm:top-8 lg:left-12 lg:top-12">
     <Image
@@ -103,13 +120,7 @@ useEffect(() => {
 
     <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
 <div className="relative">
-  <button
-    type="button"
-    onClick={() => setIsParishDropdownOpen((prev) => !prev)}
-    className="inline-flex items-center justify-center rounded-full border border-[#2f4864]/20 bg-white px-6 py-3 text-sm font-semibold text-[#2f4864] transition hover:bg-[#f0ebe2]"
-  >
-    Parish Information
-  </button>
+ 
 
   {isParishDropdownOpen && (
     <div className="absolute left-1/2 top-full z-[9999] mt-3 flex w-64 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md">
