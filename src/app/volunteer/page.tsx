@@ -68,9 +68,6 @@ export default function VolunteerPage() {
       <main className="min-h-screen bg-[#f5f1e8] text-[#16283a]">
         <section className="border-b border-[#d8d0c0] bg-[#fbfaf5] px-6 py-14 sm:px-8 lg:px-12 lg:py-20">
           <div className="mx-auto max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#8a7a20]">
-              Trinity of Faith Partnership
-            </p>
 
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-[#111827] sm:text-5xl lg:text-6xl">
               Get Involved in Parish Life
