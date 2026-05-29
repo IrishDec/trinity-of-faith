@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { supabase } from "@/lib/supabaseClient";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
