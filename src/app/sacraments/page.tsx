@@ -263,10 +263,6 @@ export default function SacramentsPage() {
       <main className="min-h-screen bg-[#f5f1e8] px-6 py-10 text-[#1f2f3f] sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#2f4864]/70">
-              Sacraments
-            </p>
-
             <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[#2f4864] sm:text-5xl">
               Sacramental Life
             </h1>
