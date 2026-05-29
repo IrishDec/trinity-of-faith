@@ -19,7 +19,7 @@ export default function SiteHeader() {
     <header className="bg-[#f5f1e8] px-5 py-5 text-[#2f4864] sm:px-8 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-black sm:text-sm sm:tracking-[0.25em]">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2f4864]  sm:text-sm sm:tracking-[0.25em]">
             Clonskeagh • Kilmacud • Mount Merrion
           </p>
 
