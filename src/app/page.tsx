@@ -106,7 +106,7 @@ useEffect(() => {
           Parish History
         </a>
 
-        <a href="/safeguarding/child" className="block transition hover:text-[#E8D33F]">
+        <a href="/safeguarding" className="block transition hover:text-[#E8D33F]">
          Safeguarding
         </a>
 
@@ -123,10 +123,6 @@ useEffect(() => {
         <div className="mt-3 space-y-2 text-white/90">
           <a href="/" className="block transition hover:text-[#E8D33F]">
             Home
-          </a>
-
-          <a href="/adoration" className="block transition hover:text-[#E8D33F]">
-            Adoration
           </a>
 
           <a href="/appreciation" className="block transition hover:text-[#E8D33F]">
