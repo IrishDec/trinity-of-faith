@@ -106,8 +106,8 @@ useEffect(() => {
           Parish History
         </a>
 
-        <a href="/safeguarding" className="block transition hover:text-[#E8D33F]">
-          Safeguarding
+        <a href="/safeguarding/child" className="block transition hover:text-[#E8D33F]">
+         Safeguarding
         </a>
 
         <a href="/contact" className="block transition hover:text-[#E8D33F]">
@@ -182,17 +182,7 @@ useEffect(() => {
 
   {isParishDropdownOpen && (
     <div className="absolute left-1/2 top-full z-[9999] mt-3 hidden w-64 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md sm:flex">
-      <button
-        type="button"
-        onClick={() => {
-          setIsParishInfoOpen(true);
-          setIsParishDropdownOpen(false);
-        }}
-        className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
-      >
-        Mass Times
-      </button>
-
+     
       <a href="/about" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
         About
       </a>
@@ -203,17 +193,6 @@ useEffect(() => {
       <a href="/fr-joe" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
         Fr Joe
       </a>
-
-      <button
-        type="button"
-        onClick={() => {
-          setIsExploreOpen(true);
-          setIsParishDropdownOpen(false);
-        }}
-        className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
-      >
-        Explore Our Parishes
-      </button>
 
       <a href="/parish-history" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
         Parish History

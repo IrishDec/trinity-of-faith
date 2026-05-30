@@ -57,9 +57,6 @@ export default function SiteHeader() {
 
             {isParishDropdownOpen && (
               <div className="grid gap-2 rounded-3xl bg-white/70 p-3">
-                <a href="/#mass-times" className={dropdownButtonClass}>
-                  Mass Times
-                </a>
                 <a href="/about" className={dropdownButtonClass}>
                   About
                 </a>
@@ -69,9 +66,9 @@ export default function SiteHeader() {
                 <a href="/parish-history" className={dropdownButtonClass}>
                   Parish History
                 </a>
-                <a href="/safeguarding" className={dropdownButtonClass}>
-                  Safeguarding
-                </a>
+               <a href="/safeguarding/child" className={dropdownButtonClass}>
+                 Safeguarding
+              </a>
                 <a href="/adoration" className={dropdownButtonClass}>
                   Adoration
                 </a>
@@ -115,9 +112,7 @@ export default function SiteHeader() {
 
             {isParishDropdownOpen && (
               <div className="absolute left-1/2 top-full z-50 mt-3 flex w-72 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md">
-                <a href="/#mass-times" className={dropdownButtonClass}>
-                  Mass Times
-                </a>
+
                 <a href="/about" className={dropdownButtonClass}>
                   About
                 </a>
