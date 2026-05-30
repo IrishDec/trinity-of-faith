@@ -99,7 +99,7 @@ useEffect(() => {
         </a>
 
         <a href="/about" className="block transition hover:text-[#E8D33F]">
-          About
+          About Us
         </a>
 
         <a href="/parish-history" className="block transition hover:text-[#E8D33F]">
@@ -180,10 +180,13 @@ useEffect(() => {
     <div className="absolute left-1/2 top-full z-[9999] mt-3 hidden w-64 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md sm:flex">
      
       <a href="/about" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
-        About
+        About Us
       </a>
           <a href="/contact" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
        Contact
+      </a>
+       <a href="/news" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
+       News
       </a>
 
       <a href="/fr-joe" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">

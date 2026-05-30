@@ -58,7 +58,13 @@ export default function SiteHeader() {
             {isParishDropdownOpen && (
               <div className="grid gap-2 rounded-3xl bg-white/70 p-3">
                 <a href="/about" className={dropdownButtonClass}>
-                  About
+                  About US
+                </a>
+                 <a href="/news" className={dropdownButtonClass}>
+                  News
+                </a>
+                   <a href="/Contact" className={dropdownButtonClass}>
+                  Contact
                 </a>
                 <a href="/fr-joe" className={dropdownButtonClass}>
                   Fr Joe
@@ -111,8 +117,15 @@ export default function SiteHeader() {
               <div className="absolute left-1/2 top-full z-50 mt-3 flex w-72 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md">
 
                 <a href="/about" className={dropdownButtonClass}>
-                  About
+                  About Us
+                  </a>
+                   <a href="/news" className={dropdownButtonClass}>
+                  News
                 </a>
+                <a href="/contact" className={dropdownButtonClass}>
+                  Contact
+                </a>
+          
                 <a href="/fr-joe" className={dropdownButtonClass}>
                   Fr Joe
                 </a>
