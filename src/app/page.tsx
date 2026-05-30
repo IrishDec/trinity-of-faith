@@ -101,7 +101,9 @@ useEffect(() => {
         <a href="/about" className="block transition hover:text-[#E8D33F]">
           About Us
         </a>
-
+  <a href="/News" className="block transition hover:text-[#E8D33F]">
+         News
+        </a>
         <a href="/parish-history" className="block transition hover:text-[#E8D33F]">
           Parish History
         </a>
