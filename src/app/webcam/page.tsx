@@ -4,7 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 const churches = [
   {
     name: "Mount Merrion Parish",
-    href: "https://www.mountmerrionparish.ie/webcam/",
+    href: "https://churchmedia.tv/coming-soon",
   },
   {
     name: "Kilmacud Parish",
@@ -12,7 +12,7 @@ const churches = [
   },
   {
     name: "Clonskeagh Parish",
-    href: "https://www.mountmerrionparish.ie/webcam/",
+    href: "https://churchmedia.tv/coming-soon",
   },
 ];
 
