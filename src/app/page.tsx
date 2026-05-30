@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient";
-
+import SiteFooter from "@/components/SiteFooter";
 
 const heroImages = [
   {
@@ -568,61 +568,9 @@ useEffect(() => {
             </div>
           </div>
         </div>
-      )}
-<footer className="bg-[#24384f] px-6 py-14 text-white sm:px-8 lg:px-12">
-  <div className="mx-auto max-w-7xl">
- <div className="grid grid-cols-2 gap-6 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
-      <div>
-        <h2 className="text-2xl font-semibold">Trinity of Faith Partnership</h2>
-        <p className="mt-4 max-w-md leading-7 text-white/80">
-          A calm, welcoming footer area for partnership details, parish links,
-          contact information, and future updates.
-        </p>
-      </div>
+       )}
 
-<div>
-  <h3 className="text-lg font-semibold text-[#E8D33F]">Admin</h3>
-  <div className="mt-4 space-y-2 text-white/80">
-    <a
-      href="/fr-joe-admin"
-      className="block transition hover:text-[#E8D33F]"
-    >
-      Weekly message 
-    </a>
-
-    <a
-      href="/fr-joe"
-      className="block transition hover:text-[#E8D33F]"
-    >
-      Fr Joe Messages
-    </a>
-  </div>
-</div>
-
-      <div>
-        <h3 className="text-lg font-semibold text-[#E8D33F]">Column Two</h3>
-        <div className="mt-4 space-y-2 text-white/80">
-          <p>Placeholder line</p>
-          <p>Placeholder line</p>
-          <p>Placeholder line</p>
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-lg font-semibold text-[#E8D33F]">Column Three</h3>
-        <div className="mt-4 space-y-2 text-white/80">
-          <p>Placeholder line</p>
-          <p>Placeholder line</p>
-          <p>Placeholder line</p>
-        </div>
-      </div>
-    </div>
-
-    <div className="mt-12 border-t border-white/15 pt-6 text-sm text-white/60">
-      <p>Footer preview only</p>
-    </div>
-  </div>
-</footer>
+      <SiteFooter />
     </main>
   );
 }

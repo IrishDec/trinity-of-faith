@@ -1,74 +1,46 @@
 export default function SiteFooter() {
   return (
-    <footer className="bg-[#24384f] px-6 py-12 text-white sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 md:grid-cols-3">
-          <div>
-            <h2 className="text-2xl font-semibold">
-              Trinity of Faith Partnership
-            </h2>
-            <p className="mt-4 max-w-md leading-7 text-white/80">
-              Clonskeagh, Kilmacud, and Mount Merrion working together as one
-              parish partnership.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-[#E8D33F]">
-              Parish Information
-            </h3>
-            <div className="mt-4 space-y-2 text-white/80">
-              <a href="/fr-joe" className="block transition hover:text-[#E8D33F]">
-                Fr Joe
-              </a>
-              <a href="/about" className="block transition hover:text-[#E8D33F]">
-                About
-              </a>
-              <a
-                href="/parish-history"
-                className="block transition hover:text-[#E8D33F]"
-              >
-                Parish History
-              </a>
-              <a
-                href="/safeguarding"
-                className="block transition hover:text-[#E8D33F]"
-              >
-                Safeguarding
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-[#E8D33F]">
-              Quick Links
-            </h3>
-            <div className="mt-4 space-y-2 text-white/80">
-              <a href="/" className="block transition hover:text-[#E8D33F]">
-                Home
-              </a>
-              <a href="/adoration" className="block transition hover:text-[#E8D33F]">
-                Adoration
-              </a>
-              <a
-                href="/appreciation"
-                className="block transition hover:text-[#E8D33F]"
-              >
-                Appreciation
-              </a>
-              <a
-                href="/fr-joe-admin"
-                className="block transition hover:text-[#E8D33F]"
-              >
-                Fr Joe CMS
-              </a>
-            </div>
-          </div>
+    <footer className="bg-[#2f4864] px-5 py-5 text-white">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 text-center text-sm md:flex-row md:justify-between md:text-left">
+        
+        <div className="leading-relaxed">
+          <p className="font-semibold">
+            Trinity of Faith Partnership © 2026
+          </p>
+          <p className="text-white/75">
+            Registered Charity Number: <span className="font-medium">[CRN 20016166]</span>
+          </p>
         </div>
 
-        <div className="mt-10 border-t border-white/15 pt-6 text-sm text-white/60">
-          <p>© Trinity of Faith Partnership</p>
-        </div>
+        <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-white/85">
+          <a href="/contact" className="transition hover:text-white hover:underline">
+            Contact
+          </a>
+          <a href="/privacy-policy" className="transition hover:text-white hover:underline">
+            Privacy Policy
+          </a>
+          <a href="/cookie-policy" className="transition hover:text-white hover:underline">
+            Cookie Policy
+          </a>
+          <a href="/safeguarding" className="transition hover:text-white hover:underline">
+            Safeguarding
+          </a>
+          <a href="/sitemap" className="transition hover:text-white hover:underline">
+            Sitemap
+          </a>
+        </nav>
+
+        <p className="text-white/75">
+          Site by{" "}
+          <a
+            href="https://heiyudigital.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-white hover:underline"
+          >
+            Heiyu Digital
+          </a>
+        </p>
       </div>
     </footer>
   );
