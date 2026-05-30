@@ -63,7 +63,7 @@ export default function SiteHeader() {
                  <a href="/news" className={dropdownButtonClass}>
                   News
                 </a>
-                   <a href="/Contact" className={dropdownButtonClass}>
+                <a href="/contact" className={dropdownButtonClass}>
                   Contact
                 </a>
                 <a href="/fr-joe" className={dropdownButtonClass}>
