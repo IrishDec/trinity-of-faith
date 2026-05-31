@@ -104,6 +104,9 @@ useEffect(() => {
          <a href="/news" className="block transition hover:text-[#E8D33F]">
           News
         </a>
+          <a href="/parish-schools" className="block transition hover:text-[#E8D33F]">
+          Parish Schools
+        </a>
          
         <a href="/parish-history" className="block transition hover:text-[#E8D33F]">
           Parish History
@@ -116,26 +119,6 @@ useEffect(() => {
         <a href="/contact" className="block transition hover:text-[#E8D33F]">
           Contact
         </a>
-      </div>
-
-      <div className="mt-4 border-t border-white/15 pt-3">
-        <h3 className="font-semibold text-[#E8D33F]">
-          Quick Links
-        </h3>
-
-        <div className="mt-3 space-y-2 text-white/90">
-          <a href="/" className="block transition hover:text-[#E8D33F]">
-            Home
-          </a>
-
-          <a href="/appreciation" className="block transition hover:text-[#E8D33F]">
-            Appreciation
-          </a>
-
-          <a href="/volunteer" className="block transition hover:text-[#E8D33F]">
-            Volunteer
-          </a>
-        </div>
       </div>
     </div>
   )}
@@ -194,6 +177,9 @@ useEffect(() => {
 
       <a href="/fr-joe" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
         Fr Joe
+      </a>
+       <a href="/parish-schools" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
+        Parish Schools
       </a>
 
       <a href="/parish-history" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">

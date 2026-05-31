@@ -69,6 +69,9 @@ export default function SiteHeader() {
                 <a href="/fr-joe" className={dropdownButtonClass}>
                   Fr Joe
                 </a>
+                 <a href="/parish-schools" className={dropdownButtonClass}>
+                  Parish Schools
+                </a>
                 <a href="/parish-history" className={dropdownButtonClass}>
                   Parish History
                 </a>
@@ -128,6 +131,9 @@ export default function SiteHeader() {
           
                 <a href="/fr-joe" className={dropdownButtonClass}>
                   Fr Joe
+                </a>
+                  <a href="/parish-schools" className={dropdownButtonClass}>
+                  Parish Schools 
                 </a>
                 <a href="/parish-history" className={dropdownButtonClass}>
                   Parish History
