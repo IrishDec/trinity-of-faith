@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trinity of Faith Website
 
-## Getting Started
+A volunteer-led website and content management platform developed for the Trinity of Faith Partnership in Dublin.
 
-First, run the development server:
+The project aims to provide a modern, accessible, and mobile-friendly digital presence for three parish communities while making it easier for parish staff and volunteers to manage content independently.
+
+## Status
+
+This project is currently in active development.
+
+The core platform has been designed, built, and deployed for stakeholder review. Ongoing updates, content revisions, and feature requests are being gathered from the parish communications team before public release.
+
+## Partner Churches
+
+* Church of the Miraculous Medal, Clonskeagh
+* St Laurence O'Toole, Kilmacud
+* St Thérèse, Mount Merrion
+
+## Project Goals
+
+* Create a unified online presence for the partnership
+* Improve access to parish information and services
+* Provide a modern mobile-first experience
+* Reduce dependence on technical support for content updates
+* Support future growth and community engagement
+
+## Tech Stack
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* Vercel
+
+## Features
+
+### Public Website
+
+* Mobile-first responsive design
+* Parish information pages
+* Schools directory coming soon 
+* Volunteer information
+* Contact information
+* Sacramental resources
+* Donation links
+* Community resources
+* Fast loading and modern user experience
+
+### Custom Content Management System
+
+A custom-built CMS was developed to allow authorised parish administrators to manage website content without requiring developer involvement.
+
+Features include:
+
+* Secure administration area
+* Content creation and editing
+* Page management
+* News and announcement management
+* Content publishing workflows
+* User-friendly interface for non-technical users
+* Centralised content administration
+
+The CMS was designed to allow volunteers and parish staff to update content independently while reducing ongoing maintenance requirements.
+
+## My Contribution
+
+This is a voluntary project undertaken to support the local church community.
+
+Responsibilities include:
+
+* Requirements gathering
+* Stakeholder engagement
+* Solution architecture
+* Front-end development
+* CMS development
+* Information architecture
+* Mobile experience design
+* Content structuring
+* Deployment and hosting
+* Ongoing iteration based on stakeholder feedback
+
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+The project is deployed using Vercel.
 
-To learn more about Next.js, take a look at the following resources:
+## Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project remains under active review and development. Content, design refinements, and additional functionality continue to be added as feedback is received from the parish communications team and other stakeholders.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project serves as a real-world example of building and maintaining a production web platform while collaborating with multiple stakeholders and supporting non-technical users through a custom content management system.
