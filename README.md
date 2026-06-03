@@ -10,6 +10,13 @@ This project is currently in active development.
 
 The core platform has been designed, built, and deployed for stakeholder review. Ongoing updates, content revisions, and feature requests are being gathered from the parish communications team before public release.
 
+## Still To Do
+
+- Footer
+- Wire up the contact forms for each parish office
+- Replace the logo to remove the visible lines
+- Site map
+
 ## Partner Churches
 
 * Church of the Miraculous Medal, Clonskeagh
