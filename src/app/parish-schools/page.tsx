@@ -18,22 +18,35 @@ const schoolSections = [
       },
     ],
   },
-  {
-    parish: "Kilmacud",
-    church: "St Laurence O’Toole",
-    intro:
-      "Schools connected with the Kilmacud parish community will be listed here.",
-    schools: [
-      {
-        name: "School name coming soon",
-        type: "Primary / Secondary",
-        address: "Address coming soon",
-        phone: "Phone coming soon",
-        email: "Email coming soon",
-        website: "#",
-      },
-    ],
-  },
+ {
+  parish: "Kilmacud",
+  church: "St Laurence O’Toole",
+  intro: "Schools connected with Kilmacud parish are listed below.",
+  primarySchools: [
+    {
+      name: "Mount Anville Primary School",
+      website: "https://www.mountanvilleprimaryschool.com/",
+    },
+    {
+      name: "Scoil Lorcán Naofa – St. Laurence’s B.N.S.",
+      website: "https://www.stlaurencesbns.ie/",
+    },
+    {
+      name: "St. Raphaela’s Primary School",
+      website: "#",
+    },
+  ],
+  secondarySchools: [
+    {
+      name: "St. Benildus College",
+      website: "https://www.stbenilduscollege.com/",
+    },
+    {
+      name: "St. Raphaela’s Secondary School",
+      website: "https://www.straphaelas.ie/",
+    },
+  ],
+},
   {
     parish: "Mount Merrion",
     church: "St Thérèse",

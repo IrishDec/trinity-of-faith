@@ -144,13 +144,40 @@ useEffect(() => {
   </div>
 {/* Top hero content */}
 <div className="relative z-40 mx-auto max-w-7xl px-6 pt-32 text-center sm:px-8 sm:pt-36 lg:px-12 lg:pt-24">
-    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-black drop-shadow-[0_2px_8px_rgba(255,255,255,0.20)] lg:text-lg">
-      Clonskeagh • Kilmacud • Mount Merrion
-    </p>
+<div className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-black drop-shadow-[0_2px_8px_rgba(255,255,255,0.20)] lg:text-lg">
+  <a
+    href="https://www.clonskeaghparish.ie/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="transition hover:text-[#E8D33F]"
+  >
+    Clonskeagh
+  </a>
+  <span className="mx-2">•</span>
+  <a
+    href="https://www.kilmacudparish.ie/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="transition hover:text-[#E8D33F]"
+  >
+    Kilmacud
+  </a>
+  <span className="mx-2">•</span>
+  <a
+    href="https://www.mountmerrionparish.ie/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="transition hover:text-[#E8D33F]"
+  >
+    Mount Merrion
+  </a>
+</div>
 
-    <h1 className="mx-auto max-w-4xl text-4xl font-semibold tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-6xl">
-      Trinity of Faith Partnership
-    </h1>
+   <h1 className="mx-auto mt-4 max-w-[320px] text-center text-5xl font-semibold leading-[1.05] tracking-tight text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.35)] sm:max-w-none sm:text-6xl">
+  Trinity of Faith
+  <br />
+  Partnership
+</h1>
 
     <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
 <div className="relative z-50">
@@ -229,7 +256,7 @@ useEffect(() => {
   </div>
 
  {/* Fr Joe box - transparent glass style */}
-<div className="relative z-20 mx-6 mb-8 mt-20 rounded-2xl bg-black/35 p-5 text-center shadow-xl backdrop-blur-md sm:mx-auto sm:max-w-2xl lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mx-0 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:p-6">
+<div className="relative z-20 mx-auto mb-8 mt-16 w-[86%] rounded-[28px] bg-black/30 px-5 py-5 text-center shadow-xl backdrop-blur-md sm:mt-20 sm:max-w-2xl sm:px-6 lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:px-6 lg:py-6">
   <p className="text-xs font-semibold uppercase leading-6 tracking-[0.24em] text-[#E8D33F] sm:text-sm sm:tracking-[0.2em]">
     A Few Words from Fr Joe
   </p>

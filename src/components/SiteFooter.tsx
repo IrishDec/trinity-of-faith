@@ -22,9 +22,6 @@ export default function SiteFooter() {
           <a href="/cookie-policy" className="transition hover:text-white hover:underline">
             Cookie Policy
           </a>
-          <a href="/safeguarding" className="transition hover:text-white hover:underline">
-            Safeguarding
-          </a>
           <a href="/sitemap" className="transition hover:text-white hover:underline">
             Sitemap
           </a>
