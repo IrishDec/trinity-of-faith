@@ -172,8 +172,7 @@ useEffect(() => {
     Mount Merrion
   </a>
 </div>
-
-   <h1 className="mx-auto mt-4 max-w-[320px] text-center text-5xl font-semibold leading-[1.05] tracking-tight text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.35)] sm:max-w-none sm:text-6xl">
+<h1 className="mx-auto mt-4 max-w-[340px] text-center text-4xl font-semibold leading-[1.15] tracking-[-0.02em] text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.28)] sm:max-w-none sm:text-6xl sm:leading-[1.05]">
   Trinity of Faith
   <br />
   Partnership
