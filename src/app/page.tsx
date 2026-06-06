@@ -144,7 +144,7 @@ useEffect(() => {
   </div>
 {/* Top hero content */}
 <div className="relative z-40 mx-auto max-w-7xl px-6 pt-32 text-center sm:px-8 sm:pt-36 lg:px-12 lg:pt-24">
-<div className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-black drop-shadow-[0_2px_8px_rgba(255,255,255,0.20)] lg:text-lg">
+<div className="mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-black drop-shadow-[0_2px_8px_rgba(255,255,255,0.20)] sm:text-xs sm:tracking-[0.18em] lg:text-lg lg:tracking-[0.25em]">
   <a
     href="https://www.clonskeaghparish.ie/"
     target="_blank"
@@ -153,7 +153,7 @@ useEffect(() => {
   >
     Clonskeagh
   </a>
-  <span className="mx-2">•</span>
+  <span className="mx-1.5 sm:mx-2">•</span>
   <a
     href="https://www.kilmacudparish.ie/"
     target="_blank"
@@ -162,7 +162,7 @@ useEffect(() => {
   >
     Kilmacud
   </a>
-  <span className="mx-2">•</span>
+  <span className="mx-1.5 sm:mx-2">•</span>
   <a
     href="https://www.mountmerrionparish.ie/"
     target="_blank"
@@ -192,7 +192,7 @@ useEffect(() => {
     <div className="absolute left-1/2 top-full z-[9999] mt-3 hidden w-64 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md sm:flex">
      
       <a href="/about" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
-        About Us
+        About  / Mass times
       </a>
         <a href="/contact" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
        Contact
@@ -202,10 +202,10 @@ useEffect(() => {
       </a>
 
       <a href="/fr-joe" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
-        Fr Joe
+        Fr Joe's words
       </a>
        <a href="/parish-schools" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
-        Parish Schools
+       school located in the Parish 
       </a>
 
       <a href="/parish-history" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
@@ -214,10 +214,6 @@ useEffect(() => {
 
       <a href="/safeguarding" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
         Safeguarding
-      </a>
-
-      <a href="/appreciation" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
-        Appreciation
       </a>
     </div>
   )}
@@ -254,27 +250,27 @@ useEffect(() => {
     </div>
   </div>
 
- {/* Fr Joe box - transparent glass style */}
-<div className="relative z-20 mx-auto mb-8 mt-16 w-[86%] rounded-[28px] bg-black/30 px-5 py-5 text-center shadow-xl backdrop-blur-md sm:mt-20 sm:max-w-2xl sm:px-6 lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mb-0 lg:mt-0 lg:w-[720px] lg:-translate-x-1/2 lg:px-6 lg:py-6">
-  <p className="text-xs font-semibold uppercase leading-6 tracking-[0.24em] text-[#E8D33F] sm:text-sm sm:tracking-[0.2em]">
+{/* Fr Joe box - transparent glass style */}
+<div className="relative z-20 mx-auto mb-8 mt-10 w-[80%] max-w-[560px] rounded-[24px] bg-black/28 px-5 py-4 text-center shadow-xl backdrop-blur-md sm:mt-14 sm:w-[74%] sm:px-6 sm:py-5 lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mb-0 lg:mt-0 lg:w-[560px] lg:-translate-x-1/2 lg:px-6 lg:py-5">
+  <p className="text-[11px] font-semibold uppercase leading-5 tracking-[0.20em] text-[#E8D33F] sm:text-xs sm:tracking-[0.18em]">
     A Few Words from Fr Joe
   </p>
 
   {latestFrJoeDate && (
-    <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/75 sm:text-xs">
+    <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/75">
       {latestFrJoeDate}
     </p>
   )}
 
   {latestFrJoeTeaser && (
-    <p className="mx-auto mt-4 max-w-[32ch] line-clamp-3 whitespace-pre-line text-[15px] leading-7 text-white/95 sm:max-w-xl sm:text-base sm:leading-7">
+    <p className="mx-auto mt-3 max-w-[28ch] line-clamp-3 whitespace-pre-line text-[15px] leading-8 text-white/95 sm:max-w-[30ch] sm:text-[16px] sm:leading-8">
       {latestFrJoeTeaser}
     </p>
   )}
 
   <a
     href="/fr-joe"
-    className="mt-5 inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#2f4864] shadow-sm transition hover:bg-[#f0ebe2]"
+    className="mt-4 inline-flex rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#2f4864] shadow-sm transition hover:bg-[#f0ebe2]"
   >
     Read more
   </a>

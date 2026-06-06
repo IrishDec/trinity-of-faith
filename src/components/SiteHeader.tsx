@@ -83,7 +83,7 @@ export default function SiteHeader() {
             {isParishDropdownOpen && (
               <div className="grid gap-2 rounded-3xl bg-white/70 p-3">
                 <a href="/about" className={dropdownButtonClass}>
-                  About US
+                  About US / Mass times 
                 </a>
                  <a href="/news" className={dropdownButtonClass}>
                   News
@@ -92,10 +92,10 @@ export default function SiteHeader() {
                   Contact
                 </a>
                 <a href="/fr-joe" className={dropdownButtonClass}>
-                  Fr Joe
+                  Fr Joe's words 
                 </a>
                  <a href="/parish-schools" className={dropdownButtonClass}>
-                  Parish Schools
+                 School located in the Parish 
                 </a>
                 <a href="/parish-history" className={dropdownButtonClass}>
                   Parish History
@@ -103,9 +103,6 @@ export default function SiteHeader() {
                <a href="/safeguarding" className={dropdownButtonClass}>
                  Safeguarding
               </a>
-                <a href="/appreciation" className={dropdownButtonClass}>
-                  Appreciation
-                </a>
               </div>
             )}
 
@@ -145,7 +142,7 @@ export default function SiteHeader() {
               <div className="absolute left-1/2 top-full z-50 mt-3 flex w-72 -translate-x-1/2 flex-col gap-2 rounded-3xl bg-white/95 p-3 shadow-xl ring-1 ring-black/10 backdrop-blur-md">
 
                 <a href="/about" className={dropdownButtonClass}>
-                  About Us
+                  About Us / Mass times 
                   </a>
                    <a href="/news" className={dropdownButtonClass}>
                   News
@@ -155,19 +152,16 @@ export default function SiteHeader() {
                 </a>
           
                 <a href="/fr-joe" className={dropdownButtonClass}>
-                  Fr Joe
+                  Fr Joe's words 
                 </a>
                   <a href="/parish-schools" className={dropdownButtonClass}>
-                  Parish Schools 
+                  Schools located in the Parish 
                 </a>
                 <a href="/parish-history" className={dropdownButtonClass}>
                   Parish History
                 </a>
                 <a href="/safeguarding" className={dropdownButtonClass}>
                   Safeguarding
-                </a>
-                <a href="/appreciation" className={dropdownButtonClass}>
-                  Appreciation
                 </a>
               </div>
             )}
