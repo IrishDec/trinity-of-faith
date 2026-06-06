@@ -123,7 +123,7 @@ export default function ParishSchoolsPage() {
                 </div>
 
                 <div className="mt-6 grid gap-5 md:grid-cols-2">
-                  {section.schools.map((school) => (
+                 {(section.schools ?? []).map((school) => (
                     <article
                       key={`${section.parish}-${school.name}`}
                       className="rounded-2xl border border-slate-200 bg-[#fbfaf7] p-5"
