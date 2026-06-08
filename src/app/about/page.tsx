@@ -150,7 +150,15 @@ export default function AboutPage() {
       Partnership Team
     </h2>
     <div className="mt-5 space-y-3 text-[17px] leading-8 text-[#425466] sm:text-[18px] sm:leading-9">
-      <p>Fr. Joe Mullan, PP, Moderator</p>
+     <p>
+  Fr. Joe Mullan, PP, Moderator
+  <br />
+  Text: 087 232 6254
+  <br />
+  <a href="mailto:jmullan39@eircom.net" className="underline hover:no-underline">
+    Email: jmullan39@eircom.net
+  </a>
+</p>
       <p>Fr. Peter Ewaoche Johnson, CC</p>
       <p>Fr. Fergus O’Donoghue, SJ, PC</p>
       <p>Fr. Paddy O’Byrne, AP</p>

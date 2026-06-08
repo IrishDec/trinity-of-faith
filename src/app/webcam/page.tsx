@@ -10,10 +10,6 @@ const churches = [
     name: "Kilmacud Parish",
     href: "https://churchmedia.tv/church-of-st-laurence-otoole-kilmacud",
   },
-  {
-    name: "Clonskeagh Parish",
-    href: "https://churchmedia.tv/coming-soon",
-  },
 ];
 
 export default function WebcamPage() {
