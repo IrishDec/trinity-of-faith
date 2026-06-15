@@ -144,7 +144,7 @@ useEffect(() => {
   </div>
 {/* Top hero content */}
 <div className="relative z-40 mx-auto max-w-7xl px-6 pt-32 text-center sm:px-8 sm:pt-36 lg:px-12 lg:pt-24">
-<div className="mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-black drop-shadow-[0_2px_8px_rgba(255,255,255,0.20)] sm:text-xs sm:tracking-[0.18em] lg:text-lg lg:tracking-[0.25em]">
+<div className="mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2f4864] drop-shadow-[0_2px_8px_rgba(255,255,255,0.20)] sm:text-xs sm:tracking-[0.18em] lg:text-lg lg:tracking-[0.25em]">
   <a
     href="https://www.clonskeaghparish.ie/"
     target="_blank"
@@ -172,7 +172,7 @@ useEffect(() => {
     Mount Merrion
   </a>
 </div>
-<h1 className="mx-auto mt-4 max-w-[340px] text-center text-4xl font-semibold leading-[1.15] tracking-[-0.02em] text-[#2f4864] drop-shadow-[0_3px_10px_rgba(0,0,0,0.28)] sm:max-w-none sm:text-6xl sm:leading-[1.05]">
+<h1 className="mx-auto mt-4 max-w-[340px] text-center text-4xl font-semibold leading-[1.15] tracking-[-0.02em] text-[#FFEA6C] drop-shadow-[0_3px_10px_rgba(0,0,0,0.28)] sm:max-w-none sm:text-6xl sm:leading-[1.05]">
   Trinity of Faith
   <br />
   Partnership
