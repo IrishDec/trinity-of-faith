@@ -149,29 +149,7 @@ export default function ParishCentresPage() {
             </div>
           </section>
 
-          <section className="mt-14 border-t border-[#d9d1c2] pt-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#2f4864]/70">
-              Clonskeagh
-            </p>
-
-            <h2 className="mt-3 text-3xl font-semibold text-[#2f4864] sm:text-4xl">
-              Centre Information
-            </h2>
-
-            <div className="mt-8 rounded-[28px] border border-dashed border-[#cfc4b2] bg-white/70 px-6 py-16 text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#2f4864]/60">
-                Photo placeholder
-              </p>
-              <p className="mt-2 text-[#425466]">
-                Add Clonskeagh centre photo here
-              </p>
-            </div>
-
-            <p className="mt-8 text-[17px] leading-8 text-[#425466] sm:text-[18px] sm:leading-9">
-              Clonskeagh centre details can be added here once the final text
-              and contact information have been provided.
-            </p>
-          </section>
+         
         </div>
       </main>
 
