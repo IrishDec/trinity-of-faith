@@ -25,6 +25,12 @@ export default function SiteFooter() {
           <a href="/sitemap" className="transition hover:text-white hover:underline">
             Sitemap
           </a>
+          <a
+          href="/fr-joe-admin"
+          className="transition hover:text-white hover:underline"
+          >
+          Weekly Message
+         </a>
         </nav>
 
         <p className="text-white/75">

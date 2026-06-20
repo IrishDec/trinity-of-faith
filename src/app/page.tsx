@@ -107,6 +107,9 @@ useEffect(() => {
           <a href="/parish-schools" className="block transition hover:text-[#E8D33F]">
           Parish Schools
         </a>
+          <a href="/parish-centres" className="block transition hover:text-[#E8D33F]">
+          Parish Centres
+        </a>
          
         <a href="/parish-history" className="block transition hover:text-[#E8D33F]">
           Parish History
@@ -203,6 +206,9 @@ useEffect(() => {
 
       <a href="/fr-joe" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
         Fr Joe's words
+      </a>
+        <a href="/parish-centres" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
+        Parish Centres
       </a>
        <a href="/parish-schools" className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]">
        school located in the Parish 
