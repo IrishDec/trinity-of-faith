@@ -29,7 +29,7 @@ export default function SiteFooter() {
           href="/fr-joe-admin"
           className="transition hover:text-white hover:underline"
           >
-          Weekly Message
+         
          </a>
         </nav>
 
