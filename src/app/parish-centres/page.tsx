@@ -32,14 +32,22 @@ export default function ParishCentresPage() {
               Community Centre
             </h2>
 
-            <div className="mt-8 rounded-[28px] border border-dashed border-[#cfc4b2] bg-white/70 px-6 py-16 text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#2f4864]/60">
-                Photo placeholder
-              </p>
-              <p className="mt-2 text-[#425466]">
-                Add Mount Merrion community centre photos here
-              </p>
-            </div>
+           <div className="mt-8 grid gap-4 sm:grid-cols-2">
+  <div className="overflow-hidden rounded-[28px] bg-white/70">
+<img
+  src="/mount-merrion-centre.jpg"
+  alt="Mount Merrion Community Centre"
+  className="h-full w-full object-cover"
+/>
+  </div>
+    <div className="overflow-hidden rounded-[28px] bg-white/70">
+  <img
+  src="/mount-merrion-opening.jpg"
+  alt="Opening of the Mount Merrion Community Centre"
+  className="h-full w-full object-cover"
+/>
+  </div>
+</div>
 
             <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#425466] sm:text-[18px] sm:leading-9">
               <p>
@@ -110,14 +118,13 @@ export default function ParishCentresPage() {
               Parish Centre
             </h2>
 
-            <div className="mt-8 rounded-[28px] border border-dashed border-[#cfc4b2] bg-white/70 px-6 py-16 text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#2f4864]/60">
-                Photo placeholder
-              </p>
-              <p className="mt-2 text-[#425466]">
-                Add Kilmacud parish centre photo here
-              </p>
-            </div>
+          <div className="mt-8 overflow-hidden rounded-[28px] bg-white/70">
+         <img
+  src="/kilmacud-centre.jpg"
+  alt="Kilmacud Parish Centre"
+  className="h-auto w-full object-cover"
+/>
+          </div>
 
             <div className="mt-8 space-y-6 text-[17px] leading-8 text-[#425466] sm:text-[18px] sm:leading-9">
               <p>
