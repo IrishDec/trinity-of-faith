@@ -74,10 +74,6 @@ export default function ParishSchoolsPage() {
                         {section.church}
                       </p>
                     </div>
-
-                    <p className="max-w-xl text-sm leading-6 text-slate-600">
-                      {section.intro}
-                    </p>
                   </div>
 
                   <div className="mt-8 grid gap-8 lg:grid-cols-2">
