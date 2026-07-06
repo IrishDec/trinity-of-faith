@@ -282,7 +282,7 @@ useEffect(() => {
 </div>
 
 {/* Fr Joe box - phone only */}
-<div className="relative z-20 mx-auto mb-5 mt-4 block w-[86%] rounded-[18px] bg-white/95 px-4 py-4 text-center shadow-md ring-1 ring-black/10 sm:hidden">
+<div className="relative z-20 mx-auto mb-4 mt-3 block w-[72%] max-w-[300px] rounded-[16px] bg-white/95 px-3 py-3 text-center shadow-md ring-1 ring-black/10 sm:hidden">
   <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#2f4864]">
     A Few Words from Fr Joe
   </p>
@@ -294,14 +294,14 @@ useEffect(() => {
   )}
 
   {latestFrJoeTeaser && (
-    <p className="mx-auto mt-3 max-w-[28ch] line-clamp-2 whitespace-pre-line text-[13px] leading-5 text-[#1f2f3f]">
+    <p className="mx-auto mt-2 max-w-[22ch] line-clamp-2 whitespace-pre-line text-[12px] leading-5 text-[#1f2f3f]">
       {latestFrJoeTeaser}
     </p>
   )}
 
   <a
     href="/fr-joe"
-    className="mt-3 inline-flex rounded-full bg-[#2f4864] px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-[#24384f]"
+    className="mt-3 inline-flex rounded-full bg-[#2f4864] px-4 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-[#24384f]"
   >
     Read more
   </a>
