@@ -28,7 +28,7 @@ export default function SiteFooter() {
           <a
           href="/fr-joe-admin"
           className="transition hover:text-white hover:underline"
-          >
+          >login
          
          </a>
         </nav>

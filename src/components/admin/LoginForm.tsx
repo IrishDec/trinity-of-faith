@@ -6,7 +6,7 @@ import { createBrowserSupabaseClient } from "@/lib/supabaseClient";
 
 export default function LoginForm() {
   const router = useRouter();
- const supabase = createBrowserSupabaseClient();
+  const supabase = createBrowserSupabaseClient();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +30,10 @@ export default function LoginForm() {
       return;
     }
 
-    router.push("/fr-joe-admin");
+    const params = new URLSearchParams(window.location.search);
+    const nextUrl = params.get("next") || "/fr-joe-admin";
+
+    router.push(nextUrl);
     router.refresh();
   }
 
@@ -55,12 +58,13 @@ export default function LoginForm() {
           >
             Email
           </label>
+
           <input
             id="email"
             type="email"
             autoComplete="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             required
             className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-[#24384f] outline-none transition focus:border-[#2f4864]"
           />
@@ -73,12 +77,13 @@ export default function LoginForm() {
           >
             Password
           </label>
+
           <input
             id="password"
             type="password"
             autoComplete="current-password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
             required
             className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-[#24384f] outline-none transition focus:border-[#2f4864]"
           />

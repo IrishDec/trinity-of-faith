@@ -9,9 +9,9 @@ export default async function FrJoeAdminPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) {
-    redirect("/login");
-  }
+if (!user) {
+  redirect("/login?next=/fr-joe-admin");
+}
 
   const { data: roleRow } = await supabase
     .from("user_roles")
