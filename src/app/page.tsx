@@ -255,9 +255,8 @@ useEffect(() => {
       </div>
     </div>
   </div>
-
-{/* Fr Joe box - transparent glass style */}
-<div className="relative z-20 mx-auto mb-8 mt-10 w-[80%] max-w-[560px] rounded-[24px] bg-black/28 px-5 py-4 text-center shadow-xl backdrop-blur-md sm:mt-14 sm:w-[74%] sm:px-6 sm:py-5 lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mb-0 lg:mt-0 lg:w-[560px] lg:-translate-x-1/2 lg:px-6 lg:py-5">
+{/* Fr Joe box - desktop/tablet glass style */}
+<div className="relative z-20 mx-auto mb-8 mt-8 w-[70%] max-w-[440px] rounded-[20px] bg-black/28 px-4 py-3 text-center shadow-xl backdrop-blur-md max-sm:hidden sm:mt-10 sm:w-[62%] sm:px-5 sm:py-4 lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mb-0 lg:mt-0 lg:w-[440px] lg:-translate-x-1/2 lg:px-5 lg:py-4">
   <p className="text-[11px] font-semibold uppercase leading-5 tracking-[0.20em] text-[#E8D33F] sm:text-xs sm:tracking-[0.18em]">
     A Few Words from Fr Joe
   </p>
@@ -277,6 +276,32 @@ useEffect(() => {
   <a
     href="/fr-joe"
     className="mt-4 inline-flex rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#2f4864] shadow-sm transition hover:bg-[#f0ebe2]"
+  >
+    Read more
+  </a>
+</div>
+
+{/* Fr Joe box - phone only */}
+<div className="relative z-20 mx-auto mb-6 mt-6 block w-[92%] rounded-[20px] bg-white/92 px-4 py-4 text-center shadow-lg ring-1 ring-black/10 backdrop-blur-sm sm:hidden">
+  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#2f4864]">
+    A Few Words from Fr Joe
+  </p>
+
+  {latestFrJoeDate && (
+    <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#70839a]">
+      {latestFrJoeDate}
+    </p>
+  )}
+
+  {latestFrJoeTeaser && (
+    <p className="mx-auto mt-3 max-w-[30ch] line-clamp-2 whitespace-pre-line text-[14px] leading-6 text-[#1f2f3f]">
+      {latestFrJoeTeaser}
+    </p>
+  )}
+
+  <a
+    href="/fr-joe"
+    className="mt-4 inline-flex rounded-full bg-[#2f4864] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#24384f]"
   >
     Read more
   </a>
