@@ -280,9 +280,8 @@ useEffect(() => {
     Read more
   </a>
 </div>
-</section>
-{/* Fr Joe mobile update section */}
-<section className="block bg-[#e7f0f3] px-6 py-10 text-center sm:hidden">
+{/* Fr Joe mobile update inside hero space */}
+<div className="relative z-20 mx-auto block px-6 pb-8 pt-4 text-center sm:hidden">
   <div className="mx-auto max-w-[340px]">
     <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#2f4864]">
       A Few Words from Fr Joe
@@ -307,6 +306,7 @@ useEffect(() => {
       Read more
     </a>
   </div>
+</div>
 </section>
       {isParishInfoOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1b2733]/70 p-4 backdrop-blur-sm">
