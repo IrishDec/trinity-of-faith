@@ -282,27 +282,27 @@ useEffect(() => {
 </div>
 </section>
 {/* Fr Joe mobile update section */}
-<section className="block bg-[#e7f0f3] px-5 py-7 sm:hidden">
-  <div className="mx-auto max-w-[340px] rounded-[26px] bg-white px-5 py-6 text-center shadow-sm ring-1 ring-black/10">
-    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#2f4864]">
+<section className="block bg-[#e7f0f3] px-6 py-10 text-center sm:hidden">
+  <div className="mx-auto max-w-[340px]">
+    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#2f4864]">
       A Few Words from Fr Joe
     </p>
 
     {latestFrJoeDate && (
-      <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#70839a]">
+      <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#70839a]">
         {latestFrJoeDate}
       </p>
     )}
 
     {latestFrJoeTeaser && (
-      <p className="mx-auto mt-4 max-w-[30ch] line-clamp-3 whitespace-pre-line text-[15px] leading-7 text-[#1f2f3f]">
+      <p className="mx-auto mt-5 max-w-[30ch] line-clamp-3 whitespace-pre-line text-[17px] leading-8 text-[#1f2f3f]">
         {latestFrJoeTeaser}
       </p>
     )}
 
     <a
       href="/fr-joe"
-      className="mt-5 inline-flex rounded-full bg-[#2f4864] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#24384f]"
+      className="mt-6 inline-flex rounded-full bg-[#2f4864] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#24384f]"
     >
       Read more
     </a>
