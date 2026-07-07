@@ -57,7 +57,143 @@ useEffect(() => {
 
   return (
     <main className="min-h-screen bg-[#f5f1e8] text-[#1f2f3f]">
-<section className="relative min-h-[78vh] overflow-hidden bg-[#f5f1e8] sm:min-h-[82vh] lg:h-screen lg:min-h-[760px]">
+    {/* Mobile-only homepage hero */}
+<section className="block bg-[#e7f0f3] text-[#1f2f3f] sm:hidden">
+  <div className="relative px-5 pt-5">
+    <div className="flex items-start justify-between gap-4">
+      <Image
+        src="/images/logo-light.png"
+        alt="Trinity of Faith Partnership logo"
+        width={112}
+        height={112}
+        className="h-20 w-20 rounded-2xl bg-white object-cover shadow-md"
+      />
+
+      <button
+        type="button"
+        onClick={() => {
+          setIsMobileMenuOpen((prev) => !prev);
+          setIsParishDropdownOpen((prev) => !prev);
+        }}
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#2f4864] text-2xl font-bold text-white shadow-md"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+    </div>
+
+    {(isMobileMenuOpen || isParishDropdownOpen) && (
+      <div className="mt-4 rounded-3xl bg-white p-4 text-sm text-[#2f4864] shadow-xl ring-1 ring-black/10">
+        <div className="grid gap-2">
+          <a href="/about" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+            Parish Information
+          </a>
+
+          <a href="/fr-joe" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+            Fr Joe
+          </a>
+
+          <a href="/news" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+            News
+          </a>
+
+          <a href="/volunteer" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+            Volunteer
+          </a>
+
+          <a href="/sacraments" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+            Sacraments
+          </a>
+
+          <a href="/donate" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+            Donate
+          </a>
+
+          <a href="/webcam" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+            Webcam
+          </a>
+
+          <a href="/contact" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+            Contact
+          </a>
+        </div>
+      </div>
+    )}
+  </div>
+
+  <div className="px-5 pb-4 pt-8 text-center">
+    <div className="text-[12px] font-bold uppercase leading-7 tracking-[0.18em] text-[#2f4864]">
+      <a
+        href="https://www.clonskeaghparish.ie/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Clonskeagh
+      </a>
+      <span className="mx-2">•</span>
+      <a
+        href="https://www.kilmacudparish.ie/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Kilmacud
+      </a>
+      <span className="mx-2">•</span>
+      <a
+        href="https://www.mountmerrionparish.ie/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Mount Merrion
+      </a>
+    </div>
+  </div>
+
+<div className="relative h-[250px] overflow-hidden">
+  {heroImages.map((image, index) => (
+    <div key={image.name} className={`hero-slide hero-slide-${index + 1}`}>
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${image.mobile})` }}
+      />
+    </div>
+  ))}
+
+  <div className="absolute inset-0 bg-black/10" />
+
+  <h1 className="absolute inset-x-5 top-8 text-center text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-[#FFEA6C] drop-shadow-[0_3px_10px_rgba(0,0,0,0.35)]">
+    Trinity of Faith
+    <br />
+    Partnership
+  </h1>
+</div>
+
+  <div className="px-6 py-7 text-center">
+    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#2f4864]">
+      A Few Words from Fr Joe
+    </p>
+
+    {latestFrJoeDate && (
+      <p className="mt-2 text-sm font-semibold text-[#70839a]">
+        {latestFrJoeDate}
+      </p>
+    )}
+
+    {latestFrJoeTeaser && (
+      <p className="mx-auto mt-4 max-w-[30ch] line-clamp-3 whitespace-pre-line text-base leading-7 text-[#1f2f3f]">
+        {latestFrJoeTeaser}
+      </p>
+    )}
+
+    <a
+      href="/fr-joe"
+      className="mt-5 inline-flex rounded-full bg-[#2f4864] px-6 py-2.5 text-sm font-semibold text-white shadow-sm"
+    >
+      Read more
+    </a>
+  </div>
+</section>
+<section className="relative hidden min-h-[78vh] overflow-hidden bg-[#f5f1e8] sm:block sm:min-h-[82vh] lg:h-screen lg:min-h-[760px]">
 
 {/* Hero images */}
 <div className="absolute inset-0 z-0">
