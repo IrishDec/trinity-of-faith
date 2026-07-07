@@ -280,8 +280,7 @@ useEffect(() => {
     Read more
   </a>
 </div>
-
-{/* Fr Joe box - phone only */}
+{/* Fr Joe mobile card temporarily hidden
 <div className="relative z-20 mx-auto mb-4 mt-3 block w-[72%] max-w-[300px] rounded-[16px] bg-white/95 px-3 py-3 text-center shadow-md ring-1 ring-black/10 sm:hidden">
   <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#2f4864]">
     A Few Words from Fr Joe
@@ -306,7 +305,9 @@ useEffect(() => {
     Read more
   </a>
 </div>
+*/}
 </section>
+
       {isParishInfoOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1b2733]/70 p-4 backdrop-blur-sm">
           <div className="relative max-h-[90vh] w-full max-w-6xl overflow-y-auto rounded-3xl bg-[#f5f1e8] p-6 shadow-2xl sm:p-8 lg:p-10">
