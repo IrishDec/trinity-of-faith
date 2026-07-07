@@ -280,34 +280,34 @@ useEffect(() => {
     Read more
   </a>
 </div>
-{/* Fr Joe mobile card temporarily hidden
-<div className="relative z-20 mx-auto mb-4 mt-3 block w-[72%] max-w-[300px] rounded-[16px] bg-white/95 px-3 py-3 text-center shadow-md ring-1 ring-black/10 sm:hidden">
-  <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#2f4864]">
-    A Few Words from Fr Joe
-  </p>
-
-  {latestFrJoeDate && (
-    <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.10em] text-[#70839a]">
-      {latestFrJoeDate}
-    </p>
-  )}
-
-  {latestFrJoeTeaser && (
-    <p className="mx-auto mt-2 max-w-[22ch] line-clamp-2 whitespace-pre-line text-[12px] leading-5 text-[#1f2f3f]">
-      {latestFrJoeTeaser}
-    </p>
-  )}
-
-  <a
-    href="/fr-joe"
-    className="mt-3 inline-flex rounded-full bg-[#2f4864] px-4 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-[#24384f]"
-  >
-    Read more
-  </a>
-</div>
-*/}
 </section>
+{/* Fr Joe mobile update section */}
+<section className="block bg-[#e7f0f3] px-5 py-7 sm:hidden">
+  <div className="mx-auto max-w-[340px] rounded-[26px] bg-white px-5 py-6 text-center shadow-sm ring-1 ring-black/10">
+    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#2f4864]">
+      A Few Words from Fr Joe
+    </p>
 
+    {latestFrJoeDate && (
+      <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#70839a]">
+        {latestFrJoeDate}
+      </p>
+    )}
+
+    {latestFrJoeTeaser && (
+      <p className="mx-auto mt-4 max-w-[30ch] line-clamp-3 whitespace-pre-line text-[15px] leading-7 text-[#1f2f3f]">
+        {latestFrJoeTeaser}
+      </p>
+    )}
+
+    <a
+      href="/fr-joe"
+      className="mt-5 inline-flex rounded-full bg-[#2f4864] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#24384f]"
+    >
+      Read more
+    </a>
+  </div>
+</section>
       {isParishInfoOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1b2733]/70 p-4 backdrop-blur-sm">
           <div className="relative max-h-[90vh] w-full max-w-6xl overflow-y-auto rounded-3xl bg-[#f5f1e8] p-6 shadow-2xl sm:p-8 lg:p-10">
