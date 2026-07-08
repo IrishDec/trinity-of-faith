@@ -46,12 +46,6 @@ export default function AboutPage() {
   </div>
   <div>
     <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-      Saturday
-    </p>
-    <p className="mt-1 text-base">10:00am</p>
-  </div>
-  <div>
-    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
       Sunday
     </p>
     <p className="mt-1 text-base">10:30am</p>
@@ -119,6 +113,12 @@ export default function AboutPage() {
     <div>
       <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
         Bank Holidays
+      </p>
+      <p className="mt-1 text-base">10:00am</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Saturday
       </p>
       <p className="mt-1 text-base">10:00am</p>
     </div>

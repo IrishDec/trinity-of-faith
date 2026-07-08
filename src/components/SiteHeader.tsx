@@ -86,7 +86,7 @@ export default function SiteHeader() {
                   About US / Mass times 
                 </a>
                  <a href="/news" className={dropdownButtonClass}>
-                  News
+                  Newsletter
                 </a>
                 <a href="/contact" className={dropdownButtonClass}>
                   Contact
@@ -95,7 +95,7 @@ export default function SiteHeader() {
                   Fr Joe's words 
                 </a>
                  <a href="/parish-schools" className={dropdownButtonClass}>
-                 School located in the Parish 
+                 Schools located in the Parish 
                 </a>
                    <a href="/parish-centres" className={dropdownButtonClass}>
                   Parish Centres 
@@ -148,7 +148,7 @@ export default function SiteHeader() {
                   About Us / Mass times 
                   </a>
                    <a href="/news" className={dropdownButtonClass}>
-                  News
+                  Newsletter
                 </a>
                 <a href="/contact" className={dropdownButtonClass}>
                   Contact
