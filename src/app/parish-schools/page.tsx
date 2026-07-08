@@ -6,7 +6,7 @@ const schoolSections = [
     parish: "Mount Merrion",
     church: "St Thérèse",
     primarySchools: [
-      { name: "Scoil San Treasa", website: "#" },
+      { name: "Scoil San Treasa", website: "https://sstreasa.ie/" },
       { name: "Oatlands", website: "#" },
       { name: "Mount Anville Montessori Junior School", website: "#" },
       { name: "Gaelscoil Laighean", website: "#" },
