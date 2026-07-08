@@ -7,37 +7,37 @@ const schoolSections = [
     church: "St Thérèse",
     primarySchools: [
       { name: "Scoil San Treasa", website: "https://sstreasa.ie/" },
-      { name: "Oatlands", website: "#" },
-      { name: "Mount Anville Montessori Junior School", website: "#" },
-      { name: "Gaelscoil Laighean", website: "#" },
+      { name: "Oatlands", website: "https://www.oatlandsprimaryschool.ie/" },
+      { name: "Mount Anville Montessori Junior School", website: "https://mountanvillemjs.ie/" },
+      { name: "Gaelscoil Laighean", website: "https://www.gaelscoillaighean.com/" },
     ],
     secondarySchools: [
-      { name: "Oatlands", website: "#" },
-      { name: "Mount Anville", website: "#" },
+      { name: "Oatlands", website: "https://oatlands.ie/" },
+      { name: "Mount Anville", website: "https://www.mountanville.ie/" },
     ],
   },
   {
     parish: "Kilmacud",
     church: "St Laurence O’Toole",
     primarySchools: [
-      { name: "St Laurence’s", website: "#" },
-      { name: "St Raphaela’s", website: "#" },
-      { name: "Mount Anville Primary", website: "#" },
-      { name: "The Children’s House", website: "#" },
+      { name: "St Laurence’s", website: "https://www.stlaurencesbns.ie/" },
+      { name: "St Raphaela’s", website: "https://straphaelasns.ie/" },
+      { name: "Mount Anville Primary", website: "https://www.mountanvilleprimaryschool.com/" },
+      { name: "The Children’s House", website: "https://childrenshouseprimary.ie/" },
     ],
     secondarySchools: [
-      { name: "St Raphaela’s", website: "#" },
-      { name: "St Benildus", website: "#" },
+      { name: "St Raphaela’s", website: "https://www.straphaelas.ie/" },
+      { name: "St Benildus", website: "https://www.stbenilduscollege.com/" },
     ],
   },
   {
     parish: "Clonskeagh",
     church: "Church of the Miraculous Medal",
     primarySchools: [
-      { name: "Our Lady’s", website: "#" },
-      { name: "St Killian’s", website: "#" },
+      { name: "Our Lady’s", website: "https://ourladysclonskeagh.ie/" },
+      { name: "St Killian’s", website: "https://www.kilians.com/kindergarten-primary-school/primary-school/" },
     ],
-    secondarySchools: [{ name: "St Killian’s", website: "#" }],
+    secondarySchools: [{ name: "St Killian’s", website: "https://www.kilians.com/" }],
   },
 ];
 
