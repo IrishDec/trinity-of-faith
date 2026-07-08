@@ -56,16 +56,16 @@ export default function SiteHeader() {
   </a>
 </div>
 
-        <div className="mt-5 flex justify-center sm:hidden">
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="rounded-full bg-[#2f4864] px-6 py-3 text-sm font-semibold text-white shadow-sm"
-          >
-            {isMenuOpen ? "Close Menu" : "Menu"}
-          </button>
-        </div>
-
+ <div className="mt-5 flex justify-end sm:hidden">
+  <button
+    type="button"
+    onClick={() => setIsMenuOpen((prev) => !prev)}
+    className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#2f4864] text-2xl font-bold text-white shadow-md transition hover:bg-[#24384f]"
+    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+  >
+    {isMenuOpen ? "×" : "☰"}
+  </button>
+</div>
         {isMenuOpen && (
           <nav className="mt-5 grid gap-3 sm:hidden">
             <a href="/" className={mobileButtonClass}>

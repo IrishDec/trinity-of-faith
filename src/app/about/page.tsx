@@ -30,118 +30,112 @@ export default function AboutPage() {
 
     <div className="mt-8 grid gap-6 lg:grid-cols-3">
       <article className="rounded-3xl bg-[#f7f7f7] p-6 ring-1 ring-black/5">
-        <h3 className="text-2xl font-semibold text-[#2f4864]">Clonskeagh</h3>
-        <div className="mt-5 space-y-4 text-[#425466]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Weekdays
-            </p>
-            <p className="mt-1 text-base">10:00am</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Bank Holidays
-            </p>
-            <p className="mt-1 text-base">11:00am</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Saturday
-            </p>
-            <p className="mt-1 text-base">10:00am</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Saturday Vigil Mass
-            </p>
-            <p className="mt-1 text-base">6:00pm</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Sunday
-            </p>
-            <p className="mt-1 text-base">10:30am</p>
-          </div>
-        </div>
-      </article>
+       <h3 className="text-2xl font-semibold text-[#2f4864]">Clonskeagh</h3>
+<div className="mt-5 space-y-4 text-[#425466]">
+  <div>
+    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+      Weekdays
+    </p>
+    <p className="mt-1 text-base">10:00am</p>
+  </div>
+  <div>
+    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+      Bank Holidays
+    </p>
+    <p className="mt-1 text-base">11:00am</p>
+  </div>
+  <div>
+    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+      Saturday
+    </p>
+    <p className="mt-1 text-base">10:00am</p>
+  </div>
+  <div>
+    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+      Sunday
+    </p>
+    <p className="mt-1 text-base">10:30am</p>
+  </div>
+</div>
+</article>
 
-      <article className="rounded-3xl bg-[#f7f7f7] p-6 ring-1 ring-black/5">
-        <h3 className="text-2xl font-semibold text-[#2f4864]">Kilmacud</h3>
-        <div className="mt-5 space-y-4 text-[#425466]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Weekdays
-            </p>
-            <p className="mt-1 text-base">10:00am</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Tuesday
-            </p>
-            <p className="mt-1 text-base">Liturgy with Eucharist</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Bank Holidays
-            </p>
-            <p className="mt-1 text-base">10:00am</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Saturday
-            </p>
-            <p className="mt-1 text-base">10:00am</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Saturday Vigil Mass
-            </p>
-            <p className="mt-1 text-base">6:00pm</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Sunday
-            </p>
-            <p className="mt-1 text-base">11:30am</p>
-          </div>
-        </div>
-      </article>
+<article className="rounded-3xl bg-[#f7f7f7] p-6 ring-1 ring-black/5">
+  <h3 className="text-2xl font-semibold text-[#2f4864]">Kilmacud</h3>
+  <div className="mt-5 space-y-4 text-[#425466]">
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Weekdays
+      </p>
+      <p className="mt-1 text-base">10:00am</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Thursday
+      </p>
+      <p className="mt-1 text-base">Liturgy with Eucharist</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Bank Holidays
+      </p>
+      <p className="mt-1 text-base">10:00am</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Saturday
+      </p>
+      <p className="mt-1 text-base">10:00am</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Saturday Vigil Mass
+      </p>
+      <p className="mt-1 text-base">6:00pm</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Sunday
+      </p>
+      <p className="mt-1 text-base">11:30am</p>
+    </div>
+  </div>
+</article>
 
-      <article className="rounded-3xl bg-[#f7f7f7] p-6 ring-1 ring-black/5">
-        <h3 className="text-2xl font-semibold text-[#2f4864]">Mount Merrion</h3>
-        <div className="mt-5 space-y-4 text-[#425466]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Weekdays
-            </p>
-            <p className="mt-1 text-base">10:00am</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Thursday
-            </p>
-            <p className="mt-1 text-base">Liturgy with Eucharist</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Bank Holidays
-            </p>
-            <p className="mt-1 text-base">10:00am</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Saturday
-            </p>
-            <p className="mt-1 text-base">Prayer Service</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
-              Sunday
-            </p>
-            <p className="mt-1 text-base">10:00am &amp; 7:30pm</p>
-          </div>
-        </div>
-      </article>
+<article className="rounded-3xl bg-[#f7f7f7] p-6 ring-1 ring-black/5">
+  <h3 className="text-2xl font-semibold text-[#2f4864]">Mount Merrion</h3>
+  <div className="mt-5 space-y-4 text-[#425466]">
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Weekdays
+      </p>
+      <p className="mt-1 text-base">10:00am</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Tuesday
+      </p>
+      <p className="mt-1 text-base">Liturgy with Eucharist</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Bank Holidays
+      </p>
+      <p className="mt-1 text-base">10:00am</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Saturday Vigil Mass
+      </p>
+      <p className="mt-1 text-base">6:00pm</p>
+    </div>
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">
+        Sunday
+      </p>
+      <p className="mt-1 text-base">10:00am &amp; 7:30pm</p>
+    </div>
+  </div>
+</article>
     </div>
   </div>
 

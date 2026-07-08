@@ -24,8 +24,6 @@ const heroImages = [
 ];
 export default function Home() {
   const [isParishInfoOpen, setIsParishInfoOpen] = useState(false);
-  const [isExploreOpen, setIsExploreOpen] = useState(false);
-  const [isSacramentsOpen, setIsSacramentsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isParishDropdownOpen, setIsParishDropdownOpen] = useState(false);
   const [latestFrJoeTeaser, setLatestFrJoeTeaser] = useState("");
@@ -71,10 +69,7 @@ useEffect(() => {
 
       <button
         type="button"
-        onClick={() => {
-          setIsMobileMenuOpen((prev) => !prev);
-          setIsParishDropdownOpen((prev) => !prev);
-        }}
+      onClick={() => setIsMobileMenuOpen((prev) => !prev)}
         className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#2f4864] text-2xl font-bold text-white shadow-md"
         aria-label="Open menu"
       >
@@ -82,43 +77,114 @@ useEffect(() => {
       </button>
     </div>
 
-    {(isMobileMenuOpen || isParishDropdownOpen) && (
-      <div className="mt-4 rounded-3xl bg-white p-4 text-sm text-[#2f4864] shadow-xl ring-1 ring-black/10">
-        <div className="grid gap-2">
-          <a href="/about" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
-            Parish Information
+    {isMobileMenuOpen && (
+  <div className="mt-4 rounded-3xl bg-white p-4 text-sm text-[#2f4864] shadow-xl ring-1 ring-black/10">
+    <div className="grid gap-3">
+      <a
+        href="/"
+        className="block rounded-2xl bg-[#f5f1e8] px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-black/5"
+      >
+        Home
+      </a>
+
+      <button
+        type="button"
+        onClick={() => setIsParishDropdownOpen((prev) => !prev)}
+        className="block rounded-2xl bg-[#f5f1e8] px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-black/5"
+      >
+        Parish Information
+      </button>
+
+      {isParishDropdownOpen && (
+        <div className="grid gap-2 rounded-3xl bg-white/70 p-3">
+          <a
+            href="/about"
+            className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+          >
+            About US / Mass times
           </a>
 
-          <a href="/fr-joe" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
-            Fr Joe
-          </a>
-
-          <a href="/news" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+          <a
+            href="/news"
+            className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+          >
             News
           </a>
 
-          <a href="/volunteer" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
-            Volunteer
-          </a>
-
-          <a href="/sacraments" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
-            Sacraments
-          </a>
-
-          <a href="/donate" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
-            Donate
-          </a>
-
-          <a href="/webcam" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
-            Webcam
-          </a>
-
-          <a href="/contact" className="rounded-full bg-[#f5f1e8] px-4 py-3 text-center font-semibold">
+          <a
+            href="/contact"
+            className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+          >
             Contact
           </a>
+
+          <a
+            href="/fr-joe"
+            className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+          >
+            Fr Joe&apos;s words
+          </a>
+
+          <a
+            href="/parish-schools"
+            className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+          >
+            School located in the Parish
+          </a>
+
+          <a
+            href="/parish-centres"
+            className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+          >
+            Parish Centres
+          </a>
+
+          <a
+            href="/parish-history"
+            className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+          >
+            Parish History
+          </a>
+
+          <a
+            href="/safeguarding"
+            className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
+          >
+            Safeguarding
+          </a>
         </div>
-      </div>
-    )}
+      )}
+
+      <a
+        href="/volunteer"
+        className="block rounded-2xl bg-[#f5f1e8] px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-black/5"
+      >
+        Volunteer
+      </a>
+
+      <a
+        href="/sacraments"
+        className="block rounded-2xl bg-[#f5f1e8] px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-black/5"
+      >
+        Sacraments
+      </a>
+
+      <a
+        href="/donate"
+        className="block rounded-2xl bg-[#f5f1e8] px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-black/5"
+      >
+        Donate
+      </a>
+
+      <a
+        href="/webcam"
+        className="block rounded-2xl bg-[#f5f1e8] px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-black/5"
+      >
+        Webcam
+      </a>
+    </div>
+  </div>
+)}
   </div>
 
   <div className="px-5 pb-4 pt-8 text-center">
@@ -311,11 +377,6 @@ useEffect(() => {
     Mount Merrion
   </a>
 </div>
-<h1 className="mx-auto mt-4 max-w-[340px] text-center text-4xl font-semibold leading-[1.15] tracking-[-0.02em] text-[#FFEA6C] drop-shadow-[0_3px_10px_rgba(0,0,0,0.28)] sm:max-w-none sm:text-6xl sm:leading-[1.05]">
-  Trinity of Faith
-  <br />
-  Partnership
-</h1>
 
     <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
 <div className="relative z-50">
@@ -391,6 +452,11 @@ useEffect(() => {
       </div>
     </div>
   </div>
+  <h1 className="mx-auto mt-4 max-w-[340px] text-center text-4xl font-semibold leading-[1.15] tracking-[-0.02em] text-[#FFEA6C] drop-shadow-[0_3px_10px_rgba(0,0,0,0.28)] sm:max-w-none sm:text-6xl sm:leading-[1.05]">
+  Trinity of Faith
+  <br />
+  Partnership
+</h1>
 {/* Fr Joe box - desktop/tablet glass style */}
 <div className="relative z-20 mx-auto mb-8 mt-8 w-[70%] max-w-[440px] rounded-[20px] bg-black/28 px-4 py-3 text-center shadow-xl backdrop-blur-md max-sm:hidden sm:mt-10 sm:w-[62%] sm:px-5 sm:py-4 lg:absolute lg:bottom-[18px] lg:left-1/2 lg:mb-0 lg:mt-0 lg:w-[440px] lg:-translate-x-1/2 lg:px-5 lg:py-4">
   <p className="text-[11px] font-semibold uppercase leading-5 tracking-[0.20em] text-[#E8D33F] sm:text-xs sm:tracking-[0.18em]">
@@ -444,307 +510,6 @@ useEffect(() => {
   </div>
 </div>
 </section>
-      {isParishInfoOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1b2733]/70 p-4 backdrop-blur-sm">
-          <div className="relative max-h-[90vh] w-full max-w-6xl overflow-y-auto rounded-3xl bg-[#f5f1e8] p-6 shadow-2xl sm:p-8 lg:p-10">
-            <button
-              type="button"
-              onClick={() => setIsParishInfoOpen(false)}
-              className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl font-semibold text-[#2f4864] shadow-md transition hover:bg-[#eef2f5]"
-              aria-label="Close parish information"
-            >
-            </button>
-
-            <div className="max-w-3xl pr-12">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2f4864]">
-                Parish Information
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#2f4864] sm:text-4xl">
-                Mass Times Across the Partnership
-              </h2>
-              <p className="mt-4 text-base leading-7 text-[#425466] sm:text-lg">
-                Quick access to the current regular Mass schedule for Clonskeagh,
-                Kilmacud, and Mount Merrion.
-              </p>
-            </div>
-
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-2xl font-semibold text-[#2f4864]">Clonskeagh</h3>
-                <div className="mt-5 space-y-4 text-[#425466]">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Weekdays</p>
-                    <p className="mt-1 text-base">10:00am</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Bank Holidays</p>
-                    <p className="mt-1 text-base">11:00am</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Saturday</p>
-                    <p className="mt-1 text-base">10:00am</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Saturday Vigil Mass</p>
-                    <p className="mt-1 text-base">6:00pm</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Sunday</p>
-                    <p className="mt-1 text-base">10:30am</p>
-                  </div>
-                </div>
-              </article>
-
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-2xl font-semibold text-[#2f4864]">Kilmacud</h3>
-                <div className="mt-5 space-y-4 text-[#425466]">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Weekdays</p>
-                    <p className="mt-1 text-base">10:00am</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Tuesday</p>
-                    <p className="mt-1 text-base">Liturgy with Eucharist</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Bank Holidays</p>
-                    <p className="mt-1 text-base">10:00am</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Saturday</p>
-                    <p className="mt-1 text-base">10:00am</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Saturday Vigil Mass</p>
-                    <p className="mt-1 text-base">6:00pm</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Sunday</p>
-                    <p className="mt-1 text-base">11:30am</p>
-                  </div>
-                </div>
-              </article>
-
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-2xl font-semibold text-[#2f4864]">Mount Merrion</h3>
-                <div className="mt-5 space-y-4 text-[#425466]">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Weekdays</p>
-                    <p className="mt-1 text-base">10:00am</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Thursday</p>
-                    <p className="mt-1 text-base">Liturgy with Eucharist</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Bank Holidays</p>
-                    <p className="mt-1 text-base">10:00am</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Saturday</p>
-                    <p className="mt-1 text-base">Prayer Service</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f4864]">Sunday</p>
-                    <p className="mt-1 text-base">10:00am &amp; 7:30pm</p>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div className="mt-8 flex justify-end">
-              <button
-                type="button"
-                onClick={() => setIsParishInfoOpen(false)}
-                className="inline-flex items-center justify-center rounded-full bg-[#2f4864] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#24384f]"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {isExploreOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1b2733]/70 p-4 backdrop-blur-sm">
-          <div className="relative max-h-[90vh] w-full max-w-6xl overflow-y-auto rounded-3xl bg-[#f5f1e8] p-6 shadow-2xl sm:p-8 lg:p-10">
-            <button
-              type="button"
-              onClick={() => setIsExploreOpen(false)}
-              className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl font-semibold text-[#2f4864] shadow-md transition hover:bg-[#eef2f5]"
-              aria-label="Close explore parishes"
-            >
-              ×
-            </button>
-
-            <div className="max-w-4xl pr-12">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2f4864]">
-                Trinity of Faith Partnership
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#2f4864] sm:text-4xl">
-                Partnership Team & Parish Contacts
-              </h2>
-            </div>
-
-            <div className="mt-8 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-              <h3 className="text-xl font-semibold text-[#2f4864]">Partnership Team</h3>
-              <div className="mt-4 space-y-2 text-[#425466]">
-                <p>Fr. Joe Mullan, PP, Moderator</p>
-                <p>Fr. Peter Ewaoche Johnson, CC</p>
-                <p>Fr. Fergus O’Donoghue, SJ, PC</p>
-                <p>Fr. Paddy O’Byrne, AP</p>
-                <p>Fr. Brian O’Reilly, AP</p>
-                <p>Fr. Ciaran Egan, CC</p>
-                <p>Sr. Catherine Greene</p>
-              </div>
-            </div>
-
-            <div className="mt-8 grid gap-6 lg:grid-cols-3">
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-2xl font-semibold text-[#2f4864]">Clonskeagh</h3>
-                <p className="mt-2 font-medium text-[#425466]">
-                  Church of the Miraculous Medal
-                </p>
-                <div className="mt-5 space-y-3 text-[#425466]">
-                  <p><span className="font-semibold text-[#2f4864]">Office:</span> Mon, Wed, Fri, 9:30am to 11:00am</p>
-                  <p><span className="font-semibold text-[#2f4864]">Secretary:</span> Sylvia Leonard</p>
-                  <p><span className="font-semibold text-[#2f4864]">Tel:</span> 01 283 7948</p>
-                  <p><span className="font-semibold text-[#2f4864]">Email:</span> clonskeaghparish@gmail.com</p>
-                </div>
-              </article>
-
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-2xl font-semibold text-[#2f4864]">Kilmacud</h3>
-                <p className="mt-2 font-medium text-[#425466]">
-                  Church of St Laurence O’Toole
-                </p>
-                <div className="mt-5 space-y-3 text-[#425466]">
-                  <p><span className="font-semibold text-[#2f4864]">Office:</span> Mon to Fri, 9:00am to 12:00 noon</p>
-                  <p><span className="font-semibold text-[#2f4864]">Secretary:</span> Christine Mullock</p>
-                  <p><span className="font-semibold text-[#2f4864]">Tel:</span> 01 288 4009</p>
-                  <p><span className="font-semibold text-[#2f4864]">Email:</span> kilmacudparishoffice@gmail.com</p>
-                </div>
-              </article>
-
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-2xl font-semibold text-[#2f4864]">Mount Merrion</h3>
-                <p className="mt-2 font-medium text-[#425466]">
-                  Church of St Thérése
-                </p>
-                <div className="mt-5 space-y-3 text-[#425466]">
-                  <p><span className="font-semibold text-[#2f4864]">Office:</span> Mon to Fri, 9:30am to 12:30pm</p>
-                  <p><span className="font-semibold text-[#2f4864]">Secretary:</span> Vivienne Dempsey</p>
-                  <p><span className="font-semibold text-[#2f4864]">Tel:</span> 01 288 1271</p>
-                  <p><span className="font-semibold text-[#2f4864]">Email:</span> parishoffice@mountmerrionparish.ie</p>
-                  <p><span className="font-semibold text-[#2f4864]">Head Sacristan:</span> Shubert Laxina</p>
-                  <p><span className="font-semibold text-[#2f4864]">Community Centre:</span> 01 288 4485</p>
-                  <p><span className="font-semibold text-[#2f4864]">Community Centre Email:</span> mmpccinfo@gmail.com</p>
-                  <p><span className="font-semibold text-[#2f4864]">SVP Helpline:</span> 01 884 8200</p>
-                </div>
-              </article>
-            </div>
-
-            <div className="mt-8 flex justify-end">
-              <button
-                type="button"
-                onClick={() => setIsExploreOpen(false)}
-                className="inline-flex items-center justify-center rounded-full bg-[#2f4864] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#24384f]"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {isSacramentsOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1b2733]/70 p-4 backdrop-blur-sm">
-          <div className="relative max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-3xl bg-[#f5f1e8] p-6 shadow-2xl sm:p-8 lg:p-10">
-            <button
-              type="button"
-              onClick={() => setIsSacramentsOpen(false)}
-              className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl font-semibold text-[#2f4864] shadow-md transition hover:bg-[#eef2f5]"
-              aria-label="Close sacraments"
-            >
-              ×
-            </button>
-
-            <div className="max-w-3xl pr-12">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2f4864]">
-                Sacraments
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#2f4864] sm:text-4xl">
-                Sacramental Life in the Partnership
-              </h2>
-              <p className="mt-4 text-base leading-7 text-[#425466] sm:text-lg">
-                Information on Baptism, First Communion, Confirmation, Marriage,
-                Reconciliation, and other sacramental moments across Clonskeagh,
-                Kilmacud, and Mount Merrion.
-              </p>
-            </div>
-
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-xl font-semibold text-[#2f4864]">Baptism</h3>
-                <p className="mt-3 leading-7 text-[#425466]">
-                  Families seeking Baptism are welcome to contact the parish office
-                  for details on preparation and the next available dates.
-                </p>
-              </article>
-
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-xl font-semibold text-[#2f4864]">First Communion</h3>
-                <p className="mt-3 leading-7 text-[#425466]">
-                  Information for families and schools preparing children for First
-                  Holy Communion can be provided through the parish offices.
-                </p>
-              </article>
-
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-xl font-semibold text-[#2f4864]">Confirmation</h3>
-                <p className="mt-3 leading-7 text-[#425466]">
-                  Confirmation preparation details, dates, and parish contacts can
-                  be requested directly through the partnership offices.
-                </p>
-              </article>
-
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-xl font-semibold text-[#2f4864]">Marriage</h3>
-                <p className="mt-3 leading-7 text-[#425466]">
-                  Couples planning marriage should contact the parish office as early
-                  as possible for guidance on documentation and preparation.
-                </p>
-              </article>
-
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-xl font-semibold text-[#2f4864]">Reconciliation</h3>
-                <p className="mt-3 leading-7 text-[#425466]">
-                  Reconciliation times and availability can be confirmed through the
-                  parish office or newsletter.
-                </p>
-              </article>
-
-              <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-xl font-semibold text-[#2f4864]">Pastoral Support</h3>
-                <p className="mt-3 leading-7 text-[#425466]">
-                  For funerals, anointing of the sick, or other pastoral needs,
-                  please contact the relevant parish office directly.
-                </p>
-              </article>
-            </div>
-
-            <div className="mt-8 flex justify-end">
-              <button
-                type="button"
-                onClick={() => setIsSacramentsOpen(false)}
-                className="inline-flex items-center justify-center rounded-full bg-[#2f4864] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#24384f]"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-       )}
 
       <SiteFooter />
     </main>
