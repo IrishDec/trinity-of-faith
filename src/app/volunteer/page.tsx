@@ -1,14 +1,13 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState, type FormEvent } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 const parishEmails: Record<string, string> = {
-  Clonskeagh: "clonskeaghparish@gmail.com",
-  Kilmacud: "kilmacudparishoffice@gmail.com",
-  "Mount Merrion": "parishoffice@mountmerrionparish.ie",
-  "Not sure": "kilmacudparishoffice@gmail.com",
+  Clonskeagh: "info@heiyudigital.com",
+  Kilmacud: "info@heiyubuild.ie",
+  "Mount Merrion": "declanobrien77@gmail.com",
 };
 
 const ministryOptions = [
@@ -36,7 +35,7 @@ const ministryOptions = [
 
 export default function VolunteerPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [selectedParish, setSelectedParish] = useState("Not sure");
+  const [selectedParish, setSelectedParish] = useState("Clonskeagh");
   const [selectedMinistry, setSelectedMinistry] = useState("Other / Not sure");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -48,7 +47,7 @@ export default function VolunteerPage() {
     const phone = String(form.get("phone") || "");
     const message = String(form.get("message") || "");
 
-    const to = parishEmails[selectedParish] || parishEmails["Not sure"];
+    const to = parishEmails[selectedParish] || parishEmails.Clonskeagh;
 
     const subject = encodeURIComponent(
       `Volunteer enquiry - ${selectedMinistry}`
@@ -98,19 +97,35 @@ export default function VolunteerPage() {
               <p className="font-semibold">We would love to have you join us.</p>
             </div>
 
-            <div className="mt-8 rounded-2xl border-l-4 border-[#E8D33F] bg-[#fff9d8] px-5 py-4 text-sm font-semibold leading-7 text-[#1f2f3f]">
-              To get involved in any of the groups or ministries below, please
-              contact the relevant parish office.
-            </div>
+         <div className="mt-8 rounded-2xl border-l-4 border-[#E8D33F] bg-[#fff9d8] px-5 py-4 text-sm font-semibold leading-7 text-[#1f2f3f]">
+  <p>
+    To get involved in any of the groups or ministries below, please
+    contact the relevant parish office.
+  </p>
 
-            <button
-              type="button"
-              onClick={() => setIsContactOpen(true)}
-              className="mt-8 inline-flex rounded-full bg-[#24384f] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1c2d42]"
-            >
-              Contact a Parish Office
-            </button>
-          </div>
+  <p className="mt-3">
+    You can also download the Kilmacud Volunteer Handbook.
+  </p>
+</div>
+
+<div className="mt-8 flex flex-col gap-3 sm:flex-row">
+  <button
+    type="button"
+    onClick={() => setIsContactOpen(true)}
+    className="inline-flex justify-center rounded-full bg-[#24384f] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1c2d42]"
+  >
+    Contact a Parish Office
+  </button>
+
+  <a
+    href="/downloads/kilmacud-volunteer-handbook.pdf"
+    download
+    className="inline-flex justify-center rounded-full bg-[#24384f] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1c2d42]"
+  >
+    Download
+  </a>
+</div>
+</div>
         </section>
 
         <section className="px-6 py-12 sm:px-8 lg:px-12">
