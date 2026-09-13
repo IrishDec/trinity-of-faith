@@ -38,7 +38,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: "Trinity of Faith Website <onboarding@resend.dev>",
+     from: "Trinity of Faith Website <forms@trinityoffaith.ie>",
       to,
       replyTo: email,
       subject: `Volunteer enquiry - ${ministry}`,
