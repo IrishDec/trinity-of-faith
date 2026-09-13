@@ -38,27 +38,46 @@ export default function VolunteerPage() {
   const [selectedParish, setSelectedParish] = useState("Clonskeagh");
   const [selectedMinistry, setSelectedMinistry] = useState("Other / Not sure");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
 
-    const form = new FormData(event.currentTarget);
-    const name = String(form.get("name") || "");
-    const email = String(form.get("email") || "");
-    const phone = String(form.get("phone") || "");
-    const message = String(form.get("message") || "");
+  const form = new FormData(event.currentTarget);
+  const name = String(form.get("name") || "");
+  const email = String(form.get("email") || "");
+  const phone = String(form.get("phone") || "");
+  const message = String(form.get("message") || "");
+  const agreed = form.get("agreed") === "on";
 
-    const to = parishEmails[selectedParish] || parishEmails.Clonskeagh;
-
-    const subject = encodeURIComponent(
-      `Volunteer enquiry - ${selectedMinistry}`
-    );
-
-    const body = encodeURIComponent(
-      `Volunteer enquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nParish: ${selectedParish}\nArea of interest: ${selectedMinistry}\n\nMessage:\n${message}`
-    );
-
-    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+  if (!agreed) {
+    alert("Please agree before sending your enquiry.");
+    return;
   }
+
+  const response = await fetch("/api/volunteer-enquiry", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      email,
+      phone,
+      parish: selectedParish,
+      ministry: selectedMinistry,
+      message,
+      agreed,
+    }),
+  });
+
+  if (!response.ok) {
+    alert("Sorry, the enquiry could not be sent. Please try again.");
+    return;
+  }
+
+  alert("Thank you. Your enquiry has been sent.");
+  setIsContactOpen(false);
+  event.currentTarget.reset();
+}
 
   return (
     <>
@@ -449,10 +468,10 @@ export default function VolunteerPage() {
               Contact a Parish Office
             </h2>
 
-            <p className="mt-3 leading-7 text-[#425466]">
-              Choose the parish and ministry you are interested in. This will
-              open an email addressed to the relevant parish office.
-            </p>
+           <p className="mt-3 leading-7 text-[#425466]">
+           Choose the parish and ministry you are interested in. Your enquiry
+           will be sent directly to the selected parish office.
+           </p>
 
             <form onSubmit={handleSubmit} className="mt-7 space-y-4">
               <Input name="name" label="Name" required />
@@ -500,7 +519,17 @@ export default function VolunteerPage() {
                   placeholder="Tell us briefly how you would like to get involved."
                 />
               </label>
-
+<label className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3 text-sm leading-6 text-[#425466] ring-1 ring-[#d8d0c0]">
+  <input
+    type="checkbox"
+    name="agreed"
+    required
+    className="mt-1 h-4 w-4"
+  />
+  <span>
+    I agree that my details may be used by the parish office to respond to this enquiry.
+  </span>
+</label>
               <button
                 type="submit"
                 className="w-full rounded-full bg-[#24384f] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1c2d42]"
