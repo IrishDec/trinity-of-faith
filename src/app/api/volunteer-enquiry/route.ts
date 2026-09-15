@@ -20,6 +20,7 @@ export async function POST(request: Request) {
     const ministry = String(body.ministry || "").trim();
     const message = String(body.message || "").trim();
     const agreed = Boolean(body.agreed);
+    const sendCopy = Boolean(body.sendCopy);
 
     if (!name || !email || !parish || !ministry || !agreed) {
       return NextResponse.json(
@@ -37,8 +38,8 @@ export async function POST(request: Request) {
       );
     }
 
-    await resend.emails.send({
-     from: "Trinity of Faith Website <forms@trinityoffaith.ie>",
+       await resend.emails.send({
+      from: "Trinity of Faith Website <forms@trinityoffaith.ie>",
       to,
       replyTo: email,
       subject: `Volunteer enquiry - ${ministry}`,
@@ -58,6 +59,32 @@ Consent:
 The sender agreed that their details may be used by the parish office to respond to this enquiry.
       `.trim(),
     });
+
+    if (sendCopy) {
+      await resend.emails.send({
+        from: "Trinity of Faith Website <forms@trinityoffaith.ie>",
+        to: email,
+        subject: `Copy of your volunteer enquiry - ${ministry}`,
+        text: `
+Thank you for contacting Trinity of Faith.
+
+Here is a copy of the volunteer enquiry you sent.
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone || "Not provided"}
+Parish: ${parish}
+Area of interest: ${ministry}
+
+Message:
+${message || "No message provided."}
+
+The parish office will respond to your enquiry directly.
+
+If you do not see a reply, please check your spam or junk folder.
+        `.trim(),
+      });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

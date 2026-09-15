@@ -47,6 +47,7 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
   const phone = String(form.get("phone") || "");
   const message = String(form.get("message") || "");
   const agreed = form.get("agreed") === "on";
+  const sendCopy = form.get("sendCopy") === "on";
 
   if (!agreed) {
     alert("Please agree before sending your enquiry.");
@@ -66,6 +67,7 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
       ministry: selectedMinistry,
       message,
       agreed,
+      sendCopy,
     }),
   });
 
@@ -74,7 +76,7 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     return;
   }
 
-  alert("Thank you. Your enquiry has been sent.");
+  alert("TThank you. Your enquiry has been sent. If you requested a copy, please check your spam or junk folder if you do not see it..");
   setIsContactOpen(false);
   event.currentTarget.reset();
 }
@@ -477,6 +479,7 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
               <Input name="name" label="Name" required />
               <Input name="email" label="Email" type="email" required />
               <Input name="phone" label="Phone" />
+              
 
               <label className="block">
                 <span className="text-sm font-semibold text-[#24384f]">
@@ -528,6 +531,16 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
   />
   <span>
     I agree that my details may be used by the parish office to respond to this enquiry.
+  </span>
+</label>
+<label className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3 text-sm leading-6 text-[#425466] ring-1 ring-[#d8d0c0]">
+  <input
+    type="checkbox"
+    name="sendCopy"
+    className="mt-1 h-4 w-4"
+  />
+  <span>
+    Send me a copy of this enquiry.
   </span>
 </label>
               <button
