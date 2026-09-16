@@ -20,7 +20,6 @@ export async function POST(request: Request) {
       form.get("childChristianNames") || ""
     ).trim();
     const dateOfBirth = String(form.get("dateOfBirth") || "").trim();
-    const baptismDate = String(form.get("baptismDate") || "").trim();
     const parentsAddress = String(form.get("parentsAddress") || "").trim();
 
     const fatherSurname = String(form.get("fatherSurname") || "").trim();
@@ -69,7 +68,6 @@ export async function POST(request: Request) {
       !childSurname ||
       !childChristianNames ||
       !dateOfBirth ||
-      !baptismDate ||
       !parentsAddress ||
       !chosenChurch ||
       !informationAccurate ||
@@ -122,7 +120,6 @@ CHILD DETAILS
 Child's surname: ${childSurname}
 Child's Christian names: ${childChristianNames}
 Date of birth: ${dateOfBirth}
-Requested date of Baptism: ${baptismDate}
 Address of parents: ${parentsAddress}
 
 PARENT DETAILS
@@ -191,7 +188,6 @@ Here is a copy of the Baptism request you submitted.
 
 Child: ${childChristianNames} ${childSurname}
 Date of birth: ${dateOfBirth}
-Requested date of Baptism: ${baptismDate}
 Chosen church: ${chosenChurch}
 
 The parish office will contact you regarding your request.

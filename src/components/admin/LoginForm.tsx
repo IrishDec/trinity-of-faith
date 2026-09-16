@@ -31,7 +31,7 @@ export default function LoginForm() {
     }
 
     const params = new URLSearchParams(window.location.search);
-    const nextUrl = params.get("next") || "/fr-joe-admin";
+   const nextUrl = params.get("next") || "/admin/newsletters";
 
     router.push(nextUrl);
     router.refresh();
