@@ -10,35 +10,68 @@ export default function MarriageEnquiryPage() {
   const [bothCatholic, setBothCatholic] = useState("");
   const [civilResponsibility, setCivilResponsibility] = useState("");
   const [error, setError] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  event.preventDefault();
 
-    if (!chosenChurch) {
-      setError("Please select the church you would like to provisionally book.");
-      return;
-    }
-
-    if (!previousMarriage) {
-      setError("Please answer whether either of you has been married before.");
-      return;
-    }
-
-    if (!bothCatholic) {
-      setError("Please answer whether you are both Catholic.");
-      return;
-    }
-
-    if (!civilResponsibility) {
-      setError(
-        "Please confirm whether you understand responsibility for civil notification and registration."
-      );
-      return;
-    }
-
-    setError("");
-    alert("Marriage booking enquiry validation is working.");
+  if (!chosenChurch) {
+    setError("Please select the church you would like to provisionally book.");
+    return;
   }
+
+  if (!previousMarriage) {
+    setError("Please answer whether either of you has been married before.");
+    return;
+  }
+
+  if (!bothCatholic) {
+    setError("Please answer whether you are both Catholic.");
+    return;
+  }
+
+  if (!civilResponsibility) {
+    setError(
+      "Please confirm whether you understand responsibility for civil notification and registration."
+    );
+    return;
+  }
+
+  setError("");
+  setIsSending(true);
+
+  const formElement = event.currentTarget;
+  const form = new FormData(formElement);
+
+  form.set("chosenChurch", chosenChurch);
+  form.set("previousMarriage", previousMarriage);
+  form.set("bothCatholic", bothCatholic);
+  form.set("civilResponsibility", civilResponsibility);
+
+  try {
+    const response = await fetch("/api/marriage-enquiry", {
+      method: "POST",
+      body: form,
+    });
+
+    if (!response.ok) {
+      alert("Sorry, the marriage enquiry could not be sent. Please try again.");
+      return;
+    }
+
+    formElement.reset();
+    setChosenChurch("");
+    setPreviousMarriage("");
+    setBothCatholic("");
+    setCivilResponsibility("");
+
+    alert(
+      "Thank you. Your provisional marriage booking enquiry has been sent. If you requested a copy, please check your spam or junk folder if you do not see it."
+    );
+  } finally {
+    setIsSending(false);
+  }
+}
 
   return (
     <>
@@ -109,363 +142,383 @@ export default function MarriageEnquiryPage() {
               </section>
             </div>
 
-            <form onSubmit={handleSubmit} className="mt-10 space-y-8">
-              <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
-                <h2 className="text-xl font-semibold text-[#2f4864]">
-                  Bride Details
-                </h2>
+    <form onSubmit={handleSubmit} className="mt-10 space-y-8">
+  <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
+    <h2 className="text-xl font-semibold text-[#2f4864]">
+      Bride Details
+    </h2>
 
-                <div className="mt-5 grid gap-5 md:grid-cols-2">
-                  <div>
-                    <label className="text-sm font-semibold text-[#2f4864]">
-                      Bride full name *
-                    </label>
-                    <input
-                      required
-                      className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
-                      placeholder="Bride full name"
-                    />
-                  </div>
+    <div className="mt-5 grid gap-5 md:grid-cols-2">
+      <div>
+        <label className="text-sm font-semibold text-[#2f4864]">
+          Bride full name *
+        </label>
+        <input
+          name="brideName"
+          required
+          className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
+          placeholder="Bride full name"
+        />
+      </div>
 
-                  <div>
-                    <label className="text-sm font-semibold text-[#2f4864]">
-                      Bride telephone / mobile *
-                    </label>
-                    <input
-                      required
-                      className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
-                      placeholder="Phone number"
-                    />
-                  </div>
-                </div>
+      <div>
+        <label className="text-sm font-semibold text-[#2f4864]">
+          Bride telephone / mobile *
+        </label>
+        <input
+          name="bridePhone"
+          required
+          className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
+          placeholder="Phone number"
+        />
+      </div>
+    </div>
 
-                <div className="mt-5">
-                  <label className="text-sm font-semibold text-[#2f4864]">
-                    Bride address *
-                  </label>
-                  <textarea
-                    required
-                    className="mt-2 min-h-24 w-full rounded-2xl border border-black/10 px-4 py-3"
-                    placeholder="Bride address"
-                  />
-                </div>
-              </section>
+    <div className="mt-5">
+      <label className="text-sm font-semibold text-[#2f4864]">
+        Bride address *
+      </label>
+      <textarea
+        name="brideAddress"
+        required
+        className="mt-2 min-h-24 w-full rounded-2xl border border-black/10 px-4 py-3"
+        placeholder="Bride address"
+      />
+    </div>
+  </section>
 
-              <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
-                <h2 className="text-xl font-semibold text-[#2f4864]">
-                  Groom Details
-                </h2>
+  <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
+    <h2 className="text-xl font-semibold text-[#2f4864]">
+      Groom Details
+    </h2>
 
-                <div className="mt-5 grid gap-5 md:grid-cols-2">
-                  <div>
-                    <label className="text-sm font-semibold text-[#2f4864]">
-                      Groom full name *
-                    </label>
-                    <input
-                      required
-                      className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
-                      placeholder="Groom full name"
-                    />
-                  </div>
+    <div className="mt-5 grid gap-5 md:grid-cols-2">
+      <div>
+        <label className="text-sm font-semibold text-[#2f4864]">
+          Groom full name *
+        </label>
+        <input
+          name="groomName"
+          required
+          className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
+          placeholder="Groom full name"
+        />
+      </div>
 
-                  <div>
-                    <label className="text-sm font-semibold text-[#2f4864]">
-                      Groom telephone / mobile *
-                    </label>
-                    <input
-                      required
-                      className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
-                      placeholder="Phone number"
-                    />
-                  </div>
-                </div>
+      <div>
+        <label className="text-sm font-semibold text-[#2f4864]">
+          Groom telephone / mobile *
+        </label>
+        <input
+          name="groomPhone"
+          required
+          className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
+          placeholder="Phone number"
+        />
+      </div>
+    </div>
 
-                <div className="mt-5">
-                  <label className="text-sm font-semibold text-[#2f4864]">
-                    Groom address *
-                  </label>
-                  <textarea
-                    required
-                    className="mt-2 min-h-24 w-full rounded-2xl border border-black/10 px-4 py-3"
-                    placeholder="Groom address"
-                  />
-                </div>
-              </section>
+    <div className="mt-5">
+      <label className="text-sm font-semibold text-[#2f4864]">
+        Groom address *
+      </label>
+      <textarea
+        name="groomAddress"
+        required
+        className="mt-2 min-h-24 w-full rounded-2xl border border-black/10 px-4 py-3"
+        placeholder="Groom address"
+      />
+    </div>
+  </section>
 
-              <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
-                <h2 className="text-xl font-semibold text-[#2f4864]">
-                  Booking Details
-                </h2>
+  <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
+    <h2 className="text-xl font-semibold text-[#2f4864]">
+      Booking Details
+    </h2>
 
-                <div className="mt-5 grid gap-5 md:grid-cols-2">
-                  <div>
-                    <label className="text-sm font-semibold text-[#2f4864]">
-                      Requested wedding date *
-                    </label>
-                    <input
-                      type="date"
-                      required
-                      className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
-                    />
-                  </div>
+    <div className="mt-5 grid gap-5 md:grid-cols-2">
+      <div>
+        <label className="text-sm font-semibold text-[#2f4864]">
+          Requested wedding date *
+        </label>
+        <input
+          name="weddingDate"
+          type="date"
+          required
+          className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
+        />
+      </div>
 
-                  <div>
-                    <label className="text-sm font-semibold text-[#2f4864]">
-                      Requested wedding time *
-                    </label>
-                    <input
-                      type="time"
-                      required
-                      className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
-                    />
-                  </div>
+      <div>
+        <label className="text-sm font-semibold text-[#2f4864]">
+          Contact email *
+        </label>
+        <input
+          name="contactEmail"
+          type="email"
+          required
+          className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
+          placeholder="Email address"
+        />
+      </div>
 
-                  <div className="md:col-span-2">
-                    <label className="text-sm font-semibold text-[#2f4864]">
-                      Name of priest who has agreed to officiate
-                    </label>
-                    <input
-                      className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
-                      placeholder="Optional / if known"
-                    />
-                  </div>
-                </div>
-              </section>
+      <div className="md:col-span-2">
+        <label className="text-sm font-semibold text-[#2f4864]">
+          Name of priest who has agreed to officiate
+        </label>
+        <input
+          name="priestName"
+          className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
+          placeholder="Optional / if known"
+        />
+      </div>
+    </div>
+  </section>
 
-              <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
-                <h2 className="text-xl font-semibold text-[#2f4864]">
-                  Choose Church
-                </h2>
+  <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
+    <h2 className="text-xl font-semibold text-[#2f4864]">
+      Choose Church
+    </h2>
 
-                <p className="mt-2 text-sm text-[#425466]">
-                  Please select the church you would like to provisionally book.
-                </p>
+    <p className="mt-2 text-sm text-[#425466]">
+      Please select the church you would like to provisionally book.
+    </p>
 
-                <div className="mt-5 grid gap-3 md:grid-cols-3">
-                  <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 text-sm font-semibold text-[#2f4864]">
-                    <input
-                      type="radio"
-                      name="chosenChurch"
-                      value="Clonskeagh"
-                      checked={chosenChurch === "Clonskeagh"}
-                      onChange={(e) => setChosenChurch(e.target.value)}
-                    />
-                    Clonskeagh
-                  </label>
+    <div className="mt-5 grid gap-3 md:grid-cols-3">
+      <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 text-sm font-semibold text-[#2f4864]">
+        <input
+          type="radio"
+          name="chosenChurch"
+          value="Clonskeagh"
+          checked={chosenChurch === "Clonskeagh"}
+          onChange={(e) => setChosenChurch(e.target.value)}
+        />
+        Clonskeagh
+      </label>
 
-                  <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 text-sm font-semibold text-[#2f4864]">
-                    <input
-                      type="radio"
-                      name="chosenChurch"
-                      value="Kilmacud"
-                      checked={chosenChurch === "Kilmacud"}
-                      onChange={(e) => setChosenChurch(e.target.value)}
-                    />
-                    Kilmacud
-                  </label>
+      <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 text-sm font-semibold text-[#2f4864]">
+        <input
+          type="radio"
+          name="chosenChurch"
+          value="Kilmacud"
+          checked={chosenChurch === "Kilmacud"}
+          onChange={(e) => setChosenChurch(e.target.value)}
+        />
+        Kilmacud
+      </label>
 
-                  <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 text-sm font-semibold text-[#2f4864]">
-                    <input
-                      type="radio"
-                      name="chosenChurch"
-                      value="Mount Merrion"
-                      checked={chosenChurch === "Mount Merrion"}
-                      onChange={(e) => setChosenChurch(e.target.value)}
-                    />
-                    Mount Merrion
-                  </label>
-                </div>
+      <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 p-4 text-sm font-semibold text-[#2f4864]">
+        <input
+          type="radio"
+          name="chosenChurch"
+          value="Mount Merrion"
+          checked={chosenChurch === "Mount Merrion"}
+          onChange={(e) => setChosenChurch(e.target.value)}
+        />
+        Mount Merrion
+      </label>
+    </div>
+  </section>
 
-                {error && !chosenChurch && (
-                  <p className="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
-                    {error}
-                  </p>
-                )}
-              </section>
+  <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
+    <h2 className="text-xl font-semibold text-[#2f4864]">
+      Declaration by Couple
+    </h2>
 
-              <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
-                <h2 className="text-xl font-semibold text-[#2f4864]">
-                  Declaration by Couple
-                </h2>
+    <div className="mt-5 space-y-5">
+      <div>
+        <p className="text-sm font-semibold text-[#2f4864]">
+          Have either of you been married in any religious or civil ceremony? *
+        </p>
 
-                <div className="mt-5 space-y-5">
-                  <div>
-                    <p className="text-sm font-semibold text-[#2f4864]">
-                      Have either of you been married in any religious or civil
-                      ceremony? *
-                    </p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
+            <input
+              type="radio"
+              name="previousMarriage"
+              value="Yes"
+              checked={previousMarriage === "Yes"}
+              onChange={(e) => setPreviousMarriage(e.target.value)}
+            />
+            Yes
+          </label>
 
-                    <div className="mt-3 flex flex-wrap gap-3">
-                      <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
-                        <input
-                          type="radio"
-                          name="previousMarriage"
-                          value="Yes"
-                          checked={previousMarriage === "Yes"}
-                          onChange={(e) => setPreviousMarriage(e.target.value)}
-                        />
-                        Yes
-                      </label>
+          <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
+            <input
+              type="radio"
+              name="previousMarriage"
+              value="No"
+              checked={previousMarriage === "No"}
+              onChange={(e) => setPreviousMarriage(e.target.value)}
+            />
+            No
+          </label>
+        </div>
+      </div>
 
-                      <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
-                        <input
-                          type="radio"
-                          name="previousMarriage"
-                          value="No"
-                          checked={previousMarriage === "No"}
-                          onChange={(e) => setPreviousMarriage(e.target.value)}
-                        />
-                        No
-                      </label>
-                    </div>
-                  </div>
+      <div>
+        <p className="text-sm font-semibold text-[#2f4864]">
+          Are you both Catholic? *
+        </p>
 
-                  <div>
-                    <p className="text-sm font-semibold text-[#2f4864]">
-                      Are you both Catholic? *
-                    </p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
+            <input
+              type="radio"
+              name="bothCatholic"
+              value="Yes"
+              checked={bothCatholic === "Yes"}
+              onChange={(e) => setBothCatholic(e.target.value)}
+            />
+            Yes
+          </label>
 
-                    <div className="mt-3 flex flex-wrap gap-3">
-                      <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
-                        <input
-                          type="radio"
-                          name="bothCatholic"
-                          value="Yes"
-                          checked={bothCatholic === "Yes"}
-                          onChange={(e) => setBothCatholic(e.target.value)}
-                        />
-                        Yes
-                      </label>
+          <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
+            <input
+              type="radio"
+              name="bothCatholic"
+              value="No"
+              checked={bothCatholic === "No"}
+              onChange={(e) => setBothCatholic(e.target.value)}
+            />
+            No
+          </label>
+        </div>
 
-                      <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
-                        <input
-                          type="radio"
-                          name="bothCatholic"
-                          value="No"
-                          checked={bothCatholic === "No"}
-                          onChange={(e) => setBothCatholic(e.target.value)}
-                        />
-                        No
-                      </label>
-                    </div>
+        {bothCatholic === "No" && (
+          <div className="mt-4">
+            <label className="text-sm font-semibold text-[#2f4864]">
+              If not, please specify *
+            </label>
+            <input
+              name="catholicDetails"
+              required
+              className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
+              placeholder="Please provide details"
+            />
+          </div>
+        )}
+      </div>
 
-                    {bothCatholic === "No" && (
-                      <div className="mt-4">
-                        <label className="text-sm font-semibold text-[#2f4864]">
-                          If not, please specify *
-                        </label>
-                        <input
-                          required
-                          className="mt-2 w-full rounded-2xl border border-black/10 px-4 py-3"
-                          placeholder="Please provide details"
-                        />
-                      </div>
-                    )}
-                  </div>
+      <div>
+        <p className="text-sm font-semibold text-[#2f4864]">
+          Are you willing to assume responsibility for the civil notification
+          and registration of your marriage? *
+        </p>
 
-                  <div>
-                    <p className="text-sm font-semibold text-[#2f4864]">
-                      Are you willing to assume responsibility for the civil
-                      notification and registration of your marriage? *
-                    </p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
+            <input
+              type="radio"
+              name="civilResponsibility"
+              value="Yes"
+              checked={civilResponsibility === "Yes"}
+              onChange={(e) => setCivilResponsibility(e.target.value)}
+            />
+            Yes
+          </label>
 
-                    <div className="mt-3 flex flex-wrap gap-3">
-                      <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
-                        <input
-                          type="radio"
-                          name="civilResponsibility"
-                          value="Yes"
-                          checked={civilResponsibility === "Yes"}
-                          onChange={(e) =>
-                            setCivilResponsibility(e.target.value)
-                          }
-                        />
-                        Yes
-                      </label>
+          <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
+            <input
+              type="radio"
+              name="civilResponsibility"
+              value="No"
+              checked={civilResponsibility === "No"}
+              onChange={(e) => setCivilResponsibility(e.target.value)}
+            />
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                      <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-black/10 px-4 py-3 text-sm font-semibold text-[#2f4864]">
-                        <input
-                          type="radio"
-                          name="civilResponsibility"
-                          value="No"
-                          checked={civilResponsibility === "No"}
-                          onChange={(e) =>
-                            setCivilResponsibility(e.target.value)
-                          }
-                        />
-                        No
-                      </label>
-                    </div>
-                  </div>
-                </div>
+  <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
+    <h2 className="text-xl font-semibold text-[#2f4864]">
+      Supporting Document Upload
+    </h2>
 
-                {error &&
-                  (!previousMarriage || !bothCatholic || !civilResponsibility) && (
-                    <p className="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
-                      {error}
-                    </p>
-                  )}
-              </section>
+    <p className="mt-2 text-sm leading-6 text-[#425466]">
+      If you already have any relevant document, you may upload it here. If not,
+      the parish office can advise you after receiving your enquiry.
+    </p>
 
-              <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
-                <h2 className="text-xl font-semibold text-[#2f4864]">
-                  Supporting Document Upload
-                </h2>
+    <input
+      type="file"
+      name="supportingDocument"
+      accept="image/*,.pdf"
+      className="mt-5 w-full rounded-2xl border border-black/10 px-4 py-3"
+    />
+  </section>
 
-                <p className="mt-2 text-sm leading-6 text-[#425466]">
-                  If you already have any relevant document, you may upload it
-                  here. If not, the parish office can advise you after receiving
-                  your enquiry.
-                </p>
+  <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
+    <h2 className="text-xl font-semibold text-[#2f4864]">
+      Consent
+    </h2>
 
-                <input
-                  type="file"
-                  accept="image/*,.pdf"
-                  className="mt-5 w-full rounded-2xl border border-black/10 px-4 py-3"
-                />
-              </section>
+    <div className="mt-5 space-y-4">
+      <label className="flex items-start gap-3 text-sm leading-6 text-[#425466]">
+        <input
+          type="checkbox"
+          name="informationAccurate"
+          required
+          className="mt-1"
+        />
+        I confirm that the information provided is accurate.
+      </label>
 
-              <section className="rounded-2xl bg-white p-5 ring-1 ring-black/5">
-                <h2 className="text-xl font-semibold text-[#2f4864]">
-                  Consent
-                </h2>
+      <label className="flex items-start gap-3 text-sm leading-6 text-[#425466]">
+        <input
+          type="checkbox"
+          name="provisionalConsent"
+          required
+          className="mt-1"
+        />
+        I understand this is a provisional booking enquiry and does not confirm
+        the church booking until the parish office confirms it.
+      </label>
 
-                <div className="mt-5 space-y-4">
-                  <label className="flex items-start gap-3 text-sm leading-6 text-[#425466]">
-                    <input type="checkbox" required className="mt-1" />
-                    I confirm that the information provided is accurate.
-                  </label>
+      <label className="flex items-start gap-3 text-sm leading-6 text-[#425466]">
+        <input
+          type="checkbox"
+          name="contactConsent"
+          required
+          className="mt-1"
+        />
+        I consent to the parish contacting me about this marriage enquiry.
+      </label>
+    </div>
+  </section>
 
-                  <label className="flex items-start gap-3 text-sm leading-6 text-[#425466]">
-                    <input type="checkbox" required className="mt-1" />
-                    I understand this is a provisional booking enquiry and does
-                    not confirm the church booking until the parish office
-                    confirms it.
-                  </label>
+  <div>
+    {error && (
+      <p className="mb-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+        {error}
+      </p>
+    )}
 
-                  <label className="flex items-start gap-3 text-sm leading-6 text-[#425466]">
-                    <input type="checkbox" required className="mt-1" />
-                    I consent to the parish contacting me about this marriage
-                    enquiry.
-                  </label>
-                </div>
-              </section>
+    <label className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3 text-sm leading-6 text-[#425466] ring-1 ring-black/10">
+      <input
+        type="checkbox"
+        name="sendCopy"
+        className="mt-1 h-4 w-4"
+      />
+      <span>
+        Send me a copy of this marriage enquiry.
+      </span>
+    </label>
 
-              <div>
-                {error && (
-                  <p className="mb-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
-                    {error}
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  className="w-full rounded-full bg-[#2f4864] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#24384f] sm:w-fit"
-                >
-                  Send Provisional Marriage Booking Enquiry
-                </button>
-              </div>
-            </form>
+    <button
+      type="submit"
+      disabled={isSending}
+      className="mt-4 w-full rounded-full bg-[#2f4864] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#24384f] disabled:cursor-not-allowed disabled:opacity-50 sm:w-fit"
+    >
+      {isSending
+        ? "Sending..."
+        : "Send Provisional Marriage Booking Enquiry"}
+    </button>
+  </div>
+</form>
           </div>
         </div>
       </main>

@@ -76,7 +76,7 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     return;
   }
 
-  alert("TThank you. Your enquiry has been sent. If you requested a copy, please check your spam or junk folder if you do not see it..");
+  alert("Thank you. Your enquiry has been sent. If you requested a copy, please check your spam or junk folder if you do not see it.");
   setIsContactOpen(false);
   event.currentTarget.reset();
 }
