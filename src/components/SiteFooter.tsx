@@ -26,7 +26,7 @@ export default function SiteFooter() {
             Sitemap
           </a>
           <a
-          href="/fr-joe-admin"
+         href="/login"
           className="transition hover:text-white hover:underline"
           >login
          
