@@ -175,7 +175,6 @@ export default function NewsletterAdminClient({
 setLoadingParish("");
 await loadUploads();
 
-window.location.href = "/news";
   }
 
   async function handleDelete(upload: NewsletterUpload) {
@@ -269,11 +268,22 @@ window.location.href = "/news";
           </div>
         </div>
 
-        {message ? (
-          <p className="mt-6 rounded-2xl bg-white px-5 py-4 text-sm shadow-sm">
-            {message}
-          </p>
-        ) : null}
+      {message ? (
+  <div className="mt-6 space-y-3">
+    <p className="rounded-2xl bg-white px-5 py-4 text-sm shadow-sm">
+      {message}
+    </p>
+
+    {message === "Newsletter uploaded successfully." && (
+      <a
+        href="/news"
+        className="inline-flex rounded-full border border-[#2f4864] px-5 py-2 text-sm font-semibold text-[#2f4864]"
+      >
+        View live newsletter page
+      </a>
+    )}
+  </div>
+) : null}
 
         <div className="mt-8 grid gap-6">
           {visibleParishes.map((parish) => (
