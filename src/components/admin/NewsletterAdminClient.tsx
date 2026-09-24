@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createBrowserSupabaseClient } from "@/lib/supabaseClient";
+import LogoutButton from "@/components/admin/LogoutButton";
 
 const allParishes = [
   {
@@ -170,9 +171,11 @@ export default function NewsletterAdminClient({
       [parish]: null,
     }));
 
-    setMessage("Newsletter uploaded successfully.");
-    setLoadingParish("");
-    await loadUploads();
+   setMessage("Newsletter uploaded successfully.");
+setLoadingParish("");
+await loadUploads();
+
+window.location.href = "/news";
   }
 
   async function handleDelete(upload: NewsletterUpload) {
@@ -223,7 +226,10 @@ export default function NewsletterAdminClient({
   return (
     <main className="min-h-screen bg-[#f5f1e8] px-6 py-12 text-[#1f2f3f]">
       <div className="mx-auto max-w-5xl">
-        <h1 className="text-3xl font-bold">Newsletter Admin</h1>
+       <div className="flex items-center justify-between gap-4">
+  <h1 className="text-3xl font-bold">Newsletter Admin</h1>
+  <LogoutButton />
+</div>
 
         <p className="mt-3 text-[#425466]">
           Upload weekly parish newsletters as PDF files.
