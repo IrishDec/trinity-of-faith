@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient";
 import SiteFooter from "@/components/SiteFooter";
+import InstagramFeed from "@/components/InstagramFeed";
 
 const heroImages = [
   {
@@ -511,7 +512,9 @@ useEffect(() => {
 </div>
 </section>
 
-      <SiteFooter />
+<InstagramFeed />
+
+<SiteFooter />
     </main>
   );
 }
