@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { createServerSupabaseClient } from "@/lib/supabaseServer";
+import InstagramRefreshButton from "@/components/admin/InstagramRefreshButton";
 
 const officeRoles = [
   "super_admin",
@@ -101,7 +102,23 @@ export default async function AdminPage() {
                     Update the weekly message shown on the website.
                   </p>
                 </Link>
+                
               )}
+              {canManageFrJoe && (
+  <Link
+    href="/fr-joe-admin"
+    className="rounded-2xl border border-black/10 p-6 transition hover:bg-[#f8f6f1]"
+  >
+    <h2 className="text-xl font-semibold text-[#2f4864]">
+      Fr Joe&apos;s Words
+    </h2>
+    <p className="mt-2 text-sm leading-6 text-[#425466]">
+      Update the weekly message shown on the website.
+    </p>
+  </Link>
+)}
+
+{roles.includes("super_admin") && <InstagramRefreshButton />}
             </div>
           </div>
         </div>
