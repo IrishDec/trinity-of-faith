@@ -116,16 +116,19 @@ export default function InstagramFeed() {
   lg:w-[calc(33.333%-14px)] lg:min-w-[calc(33.333%-14px)]
               "
             >
-              <div className="flex aspect-square items-center justify-center bg-[#e7f0f3] px-8 text-center">
-                <div>
-                  <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#70839a]">
-                    Instagram
-                  </p>
-                  <p className="mt-3 text-xl font-semibold text-[#2f4864]">
-                    Post preview
-                  </p>
-                </div>
-              </div>
+          {post.media_url ? (
+  <img
+    src={post.media_url}
+    alt="Trinity of Faith Instagram post"
+    className="aspect-square w-full object-cover"
+  />
+) : (
+  <div className="flex aspect-square items-center justify-center bg-[#e7f0f3] px-8 text-center">
+    <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#70839a]">
+      Instagram
+    </p>
+  </div>
+)}
 
               <div className="p-5">
                <h3 className="font-semibold text-[#2f4864]">Parish Update</h3>
