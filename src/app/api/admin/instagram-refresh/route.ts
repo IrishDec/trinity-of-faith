@@ -117,11 +117,12 @@ export async function POST() {
               storageError
             );
           } else {
-            const { data: publicUrlData } = supabase.storage
-              .from("instagram-media")
-              .getPublicUrl(filePath);
+           const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
-            permanentMediaUrl = publicUrlData.publicUrl;
+          if (supabaseUrl) {
+          permanentMediaUrl =
+         `${supabaseUrl}/storage/v1/object/public/instagram-media/${filePath}`;
+            }
           }
         } else {
           console.error(
