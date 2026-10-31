@@ -123,7 +123,7 @@ useEffect(() => {
             href="/fr-joe"
             className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-[#2f4864] shadow-sm ring-1 ring-[#2f4864]/10 transition hover:bg-[#f0ebe2]"
           >
-            Fr Joe,s words
+            Fr Joe's words
           </a>
 
           <a
